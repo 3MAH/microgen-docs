@@ -1,0 +1,1009 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Implicit Shapes (F-rep) &mdash; Microgen 1.4.0.dev0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+
+  
+    <link rel="canonical" href="https://microgen.readthedocs.io/en/latest/examples/implicit_shapes.html"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=48c8187c"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Triply Periodic Minimal Surfaces (TPMS)" href="tpms.html" />
+    <link rel="prev" title="Lattices" href="lattices.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #24445C" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Microgen
+              <img src="../_static/microgen.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Overview.html#brief-examples">Brief examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Install.html#with-pip">With pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Install.html#with-conda">With conda</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick-Start Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#first-steps">First Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#creating-a-basic-tpms-shape">Creating a Basic TPMS Shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#tpms-part-types">TPMS Part Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#creating-basic-shapes">Creating Basic Shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#generating-cad-geometry">Generating CAD Geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#exporting-results">Exporting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html#basic-shapes">Basic Shapes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#box">Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#sphere">Sphere</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#cylinder">Cylinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#ellipsoid">Ellipsoid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#capsule">Capsule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#extruded-polygon">Extruded Polygon</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html#tpms-surfaces">TPMS Surfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#available-surface-functions">Available Surface Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#tpms-examples">TPMS Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#using-density-instead-of-offset">Using Density Instead of Offset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#spherical-tpms">Spherical TPMS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#cylindrical-tpms">Cylindrical TPMS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html#implicit-shapes-f-rep">Implicit Shapes (F-rep)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#converting-basic-shapes-to-implicit">Converting Basic Shapes to Implicit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#primitives">Primitives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#boolean-operations">Boolean Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#smooth-blending">Smooth Blending</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#batch-smooth-union">Batch Smooth Union</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#transforms">Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#utilities-shell-and-repeat">Utilities: Shell and Repeat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#tpms-f-rep-composition">TPMS + F-rep Composition</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html#d-operations">3D Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#repeat">Repeat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#raster">Raster</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html#meshing">Meshing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#regular-mesh-with-gmsh">Regular Mesh with Gmsh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#periodic-mesh">Periodic Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#remeshing-with-mmg">Remeshing with Mmg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html#further-resources">Further Resources</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Documentation.html">Microgen API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html">Microgen modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#module-microgen.phase">Phase module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.phase.Phase"><code class="docutils literal notranslate"><span class="pre">Phase</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#module-microgen.operations">Operations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.cutPhaseByShapeList"><code class="docutils literal notranslate"><span class="pre">cutPhaseByShapeList()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.cutPhases"><code class="docutils literal notranslate"><span class="pre">cutPhases()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.cutPhasesByShape"><code class="docutils literal notranslate"><span class="pre">cutPhasesByShape()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.cutShapes"><code class="docutils literal notranslate"><span class="pre">cutShapes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.cut_phase_by_shape_list"><code class="docutils literal notranslate"><span class="pre">cut_phase_by_shape_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.cut_phases"><code class="docutils literal notranslate"><span class="pre">cut_phases()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.cut_phases_by_shape"><code class="docutils literal notranslate"><span class="pre">cut_phases_by_shape()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.cut_shapes"><code class="docutils literal notranslate"><span class="pre">cut_shapes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.fuseShapes"><code class="docutils literal notranslate"><span class="pre">fuseShapes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.fuse_shapes"><code class="docutils literal notranslate"><span class="pre">fuse_shapes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.rasterPhase"><code class="docutils literal notranslate"><span class="pre">rasterPhase()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.raster_phase"><code class="docutils literal notranslate"><span class="pre">raster_phase()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.repeatPolyData"><code class="docutils literal notranslate"><span class="pre">repeatPolyData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.repeatShape"><code class="docutils literal notranslate"><span class="pre">repeatShape()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.repeat_polydata"><code class="docutils literal notranslate"><span class="pre">repeat_polydata()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.repeat_shape"><code class="docutils literal notranslate"><span class="pre">repeat_shape()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.rescale"><code class="docutils literal notranslate"><span class="pre">rescale()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.rotate"><code class="docutils literal notranslate"><span class="pre">rotate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.rotateEuler"><code class="docutils literal notranslate"><span class="pre">rotateEuler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.rotatePvEuler"><code class="docutils literal notranslate"><span class="pre">rotatePvEuler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.rotate_euler"><code class="docutils literal notranslate"><span class="pre">rotate_euler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.operations.rotate_pv_euler"><code class="docutils literal notranslate"><span class="pre">rotate_pv_euler()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#module-microgen.rve">Rve</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.rve.Rve"><code class="docutils literal notranslate"><span class="pre">Rve</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#module-microgen.periodic">Periodic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.periodic.periodic"><code class="docutils literal notranslate"><span class="pre">periodic()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.periodic.periodic_split_and_translate"><code class="docutils literal notranslate"><span class="pre">periodic_split_and_translate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#module-microgen.mesh">Mesh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.mesh.OutputMeshNotPeriodicError"><code class="docutils literal notranslate"><span class="pre">OutputMeshNotPeriodicError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.mesh.is_periodic"><code class="docutils literal notranslate"><span class="pre">is_periodic()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.mesh.mesh"><code class="docutils literal notranslate"><span class="pre">mesh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.mesh.meshPeriodic"><code class="docutils literal notranslate"><span class="pre">meshPeriodic()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.mesh.mesh_periodic"><code class="docutils literal notranslate"><span class="pre">mesh_periodic()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#module-microgen.remesh">Remesh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.remesh.InputMeshNotPeriodicError"><code class="docutils literal notranslate"><span class="pre">InputMeshNotPeriodicError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.remesh.OutputMeshNotPeriodicError"><code class="docutils literal notranslate"><span class="pre">OutputMeshNotPeriodicError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.remesh.remesh_keeping_boundaries_for_fem"><code class="docutils literal notranslate"><span class="pre">remesh_keeping_boundaries_for_fem()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.remesh.remesh_keeping_periodicity_for_fem"><code class="docutils literal notranslate"><span class="pre">remesh_keeping_periodicity_for_fem()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#module-microgen.external">External</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.external.Mmg"><code class="docutils literal notranslate"><span class="pre">Mmg</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.external.MmgError"><code class="docutils literal notranslate"><span class="pre">MmgError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.external.Neper"><code class="docutils literal notranslate"><span class="pre">Neper</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modules.html#microgen.external.parseNeper"><code class="docutils literal notranslate"><span class="pre">parseNeper()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../microgen.shape.html">microgen.shape package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#shape-microgen-shape">Shape (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Box"><code class="docutils literal notranslate"><span class="pre">Box</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Box.generate"><code class="docutils literal notranslate"><span class="pre">Box.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Box.generateVtk"><code class="docutils literal notranslate"><span class="pre">Box.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Box.generate_vtk"><code class="docutils literal notranslate"><span class="pre">Box.generate_vtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Box.to_implicit"><code class="docutils literal notranslate"><span class="pre">Box.to_implicit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Capsule"><code class="docutils literal notranslate"><span class="pre">Capsule</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Capsule.generate"><code class="docutils literal notranslate"><span class="pre">Capsule.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Capsule.generateVtk"><code class="docutils literal notranslate"><span class="pre">Capsule.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Capsule.generate_vtk"><code class="docutils literal notranslate"><span class="pre">Capsule.generate_vtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Capsule.to_implicit"><code class="docutils literal notranslate"><span class="pre">Capsule.to_implicit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Cylinder"><code class="docutils literal notranslate"><span class="pre">Cylinder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Cylinder.generate"><code class="docutils literal notranslate"><span class="pre">Cylinder.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Cylinder.generateVtk"><code class="docutils literal notranslate"><span class="pre">Cylinder.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Cylinder.generate_vtk"><code class="docutils literal notranslate"><span class="pre">Cylinder.generate_vtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Cylinder.to_implicit"><code class="docutils literal notranslate"><span class="pre">Cylinder.to_implicit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.CylindricalTpms"><code class="docutils literal notranslate"><span class="pre">CylindricalTpms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Ellipsoid"><code class="docutils literal notranslate"><span class="pre">Ellipsoid</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Ellipsoid.generate"><code class="docutils literal notranslate"><span class="pre">Ellipsoid.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Ellipsoid.generateVtk"><code class="docutils literal notranslate"><span class="pre">Ellipsoid.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Ellipsoid.generate_vtk"><code class="docutils literal notranslate"><span class="pre">Ellipsoid.generate_vtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Ellipsoid.to_implicit"><code class="docutils literal notranslate"><span class="pre">Ellipsoid.to_implicit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ExtrudedPolygon"><code class="docutils literal notranslate"><span class="pre">ExtrudedPolygon</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ExtrudedPolygon.generate"><code class="docutils literal notranslate"><span class="pre">ExtrudedPolygon.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ExtrudedPolygon.generateVtk"><code class="docutils literal notranslate"><span class="pre">ExtrudedPolygon.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ExtrudedPolygon.generate_vtk"><code class="docutils literal notranslate"><span class="pre">ExtrudedPolygon.generate_vtk()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ImplicitShape"><code class="docutils literal notranslate"><span class="pre">ImplicitShape</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ImplicitShape.evaluate"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.evaluate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ImplicitShape.generate"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ImplicitShape.generateVtk"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ImplicitShape.generate_vtk"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.generate_vtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ImplicitShape.rotate"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.rotate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ImplicitShape.scale"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.scale()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ImplicitShape.smooth_difference"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.smooth_difference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ImplicitShape.smooth_intersection"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.smooth_intersection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ImplicitShape.smooth_union"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.smooth_union()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ImplicitShape.translate"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.translate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Infill"><code class="docutils literal notranslate"><span class="pre">Infill</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.NormedDistance"><code class="docutils literal notranslate"><span class="pre">NormedDistance</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.NormedDistance.compute_offset"><code class="docutils literal notranslate"><span class="pre">NormedDistance.compute_offset()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Polyhedron"><code class="docutils literal notranslate"><span class="pre">Polyhedron</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Polyhedron.generate"><code class="docutils literal notranslate"><span class="pre">Polyhedron.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Polyhedron.generateVtk"><code class="docutils literal notranslate"><span class="pre">Polyhedron.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Polyhedron.generate_vtk"><code class="docutils literal notranslate"><span class="pre">Polyhedron.generate_vtk()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Shape"><code class="docutils literal notranslate"><span class="pre">Shape</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Shape.generate"><code class="docutils literal notranslate"><span class="pre">Shape.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Shape.generateVtk"><code class="docutils literal notranslate"><span class="pre">Shape.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Shape.generate_vtk"><code class="docutils literal notranslate"><span class="pre">Shape.generate_vtk()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Sphere"><code class="docutils literal notranslate"><span class="pre">Sphere</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Sphere.generate"><code class="docutils literal notranslate"><span class="pre">Sphere.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Sphere.generateVtk"><code class="docutils literal notranslate"><span class="pre">Sphere.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Sphere.generate_vtk"><code class="docutils literal notranslate"><span class="pre">Sphere.generate_vtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Sphere.to_implicit"><code class="docutils literal notranslate"><span class="pre">Sphere.to_implicit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.SphericalTpms"><code class="docutils literal notranslate"><span class="pre">SphericalTpms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Tpms"><code class="docutils literal notranslate"><span class="pre">Tpms</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Tpms.generate"><code class="docutils literal notranslate"><span class="pre">Tpms.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Tpms.generateVtk"><code class="docutils literal notranslate"><span class="pre">Tpms.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Tpms.generate_grid_vtk"><code class="docutils literal notranslate"><span class="pre">Tpms.generate_grid_vtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Tpms.generate_vtk"><code class="docutils literal notranslate"><span class="pre">Tpms.generate_vtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Tpms.grid_lower_skeletal"><code class="docutils literal notranslate"><span class="pre">Tpms.grid_lower_skeletal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Tpms.grid_sheet"><code class="docutils literal notranslate"><span class="pre">Tpms.grid_sheet</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Tpms.grid_upper_skeletal"><code class="docutils literal notranslate"><span class="pre">Tpms.grid_upper_skeletal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Tpms.lower_skeletal"><code class="docutils literal notranslate"><span class="pre">Tpms.lower_skeletal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Tpms.offset"><code class="docutils literal notranslate"><span class="pre">Tpms.offset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Tpms.offset_from_density"><code class="docutils literal notranslate"><span class="pre">Tpms.offset_from_density()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Tpms.sheet"><code class="docutils literal notranslate"><span class="pre">Tpms.sheet</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Tpms.skeletals"><code class="docutils literal notranslate"><span class="pre">Tpms.skeletals</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Tpms.surface"><code class="docutils literal notranslate"><span class="pre">Tpms.surface</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Tpms.upper_skeletal"><code class="docutils literal notranslate"><span class="pre">Tpms.upper_skeletal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.batch_smooth_union"><code class="docutils literal notranslate"><span class="pre">batch_smooth_union()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.newGeometry"><code class="docutils literal notranslate"><span class="pre">newGeometry()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.new_geometry"><code class="docutils literal notranslate"><span class="pre">new_geometry()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#basic-geometry-microgen-shape-shape">Basic Geometry (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.shape</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.shape.Shape"><code class="docutils literal notranslate"><span class="pre">Shape</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.shape.Shape.generate"><code class="docutils literal notranslate"><span class="pre">Shape.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.shape.Shape.generateVtk"><code class="docutils literal notranslate"><span class="pre">Shape.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.shape.Shape.generate_vtk"><code class="docutils literal notranslate"><span class="pre">Shape.generate_vtk()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#box-microgen-shape-box">Box (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.box</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.box.Box"><code class="docutils literal notranslate"><span class="pre">Box</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.box.Box.generate"><code class="docutils literal notranslate"><span class="pre">Box.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.box.Box.generateVtk"><code class="docutils literal notranslate"><span class="pre">Box.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.box.Box.generate_vtk"><code class="docutils literal notranslate"><span class="pre">Box.generate_vtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.box.Box.to_implicit"><code class="docutils literal notranslate"><span class="pre">Box.to_implicit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#capsule-microgen-shape-capsule">Capsule (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.capsule</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.capsule.Capsule"><code class="docutils literal notranslate"><span class="pre">Capsule</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.capsule.Capsule.generate"><code class="docutils literal notranslate"><span class="pre">Capsule.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.capsule.Capsule.generateVtk"><code class="docutils literal notranslate"><span class="pre">Capsule.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.capsule.Capsule.generate_vtk"><code class="docutils literal notranslate"><span class="pre">Capsule.generate_vtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.capsule.Capsule.to_implicit"><code class="docutils literal notranslate"><span class="pre">Capsule.to_implicit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#cylinder-microgen-shape-cylinder">Cylinder (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.cylinder</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.cylinder.Cylinder"><code class="docutils literal notranslate"><span class="pre">Cylinder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.cylinder.Cylinder.generate"><code class="docutils literal notranslate"><span class="pre">Cylinder.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.cylinder.Cylinder.generateVtk"><code class="docutils literal notranslate"><span class="pre">Cylinder.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.cylinder.Cylinder.generate_vtk"><code class="docutils literal notranslate"><span class="pre">Cylinder.generate_vtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.cylinder.Cylinder.to_implicit"><code class="docutils literal notranslate"><span class="pre">Cylinder.to_implicit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#ellipsoid-microgen-shape-ellipsoid">Ellipsoid (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.ellipsoid</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ellipsoid.Ellipsoid"><code class="docutils literal notranslate"><span class="pre">Ellipsoid</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ellipsoid.Ellipsoid.generate"><code class="docutils literal notranslate"><span class="pre">Ellipsoid.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ellipsoid.Ellipsoid.generateVtk"><code class="docutils literal notranslate"><span class="pre">Ellipsoid.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ellipsoid.Ellipsoid.generate_vtk"><code class="docutils literal notranslate"><span class="pre">Ellipsoid.generate_vtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ellipsoid.Ellipsoid.to_implicit"><code class="docutils literal notranslate"><span class="pre">Ellipsoid.to_implicit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#extruded-polygon-microgen-shape-extruded-polygon">Extruded Polygon (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.extruded_polygon</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.extruded_polygon.ExtrudedPolygon"><code class="docutils literal notranslate"><span class="pre">ExtrudedPolygon</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.extruded_polygon.ExtrudedPolygon.generate"><code class="docutils literal notranslate"><span class="pre">ExtrudedPolygon.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.extruded_polygon.ExtrudedPolygon.generateVtk"><code class="docutils literal notranslate"><span class="pre">ExtrudedPolygon.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.extruded_polygon.ExtrudedPolygon.generate_vtk"><code class="docutils literal notranslate"><span class="pre">ExtrudedPolygon.generate_vtk()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#polyhedron-microgen-shape-polyhedron">Polyhedron (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.polyhedron</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.polyhedron.Polyhedron"><code class="docutils literal notranslate"><span class="pre">Polyhedron</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.polyhedron.Polyhedron.generate"><code class="docutils literal notranslate"><span class="pre">Polyhedron.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.polyhedron.Polyhedron.generateVtk"><code class="docutils literal notranslate"><span class="pre">Polyhedron.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.polyhedron.Polyhedron.generate_vtk"><code class="docutils literal notranslate"><span class="pre">Polyhedron.generate_vtk()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.polyhedron.read_obj"><code class="docutils literal notranslate"><span class="pre">read_obj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#sphere-microgen-shape-sphere">Sphere (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.sphere</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.sphere.Sphere"><code class="docutils literal notranslate"><span class="pre">Sphere</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.sphere.Sphere.generate"><code class="docutils literal notranslate"><span class="pre">Sphere.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.sphere.Sphere.generateVtk"><code class="docutils literal notranslate"><span class="pre">Sphere.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.sphere.Sphere.generate_vtk"><code class="docutils literal notranslate"><span class="pre">Sphere.generate_vtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.sphere.Sphere.to_implicit"><code class="docutils literal notranslate"><span class="pre">Sphere.to_implicit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#tpms-microgen-shape-tpms">TPMS (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.tpms</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.CylindricalTpms"><code class="docutils literal notranslate"><span class="pre">CylindricalTpms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.Infill"><code class="docutils literal notranslate"><span class="pre">Infill</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.ShellCreationError"><code class="docutils literal notranslate"><span class="pre">ShellCreationError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.SphericalTpms"><code class="docutils literal notranslate"><span class="pre">SphericalTpms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.Tpms"><code class="docutils literal notranslate"><span class="pre">Tpms</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.Tpms.generate"><code class="docutils literal notranslate"><span class="pre">Tpms.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.Tpms.generateVtk"><code class="docutils literal notranslate"><span class="pre">Tpms.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.Tpms.generate_grid_vtk"><code class="docutils literal notranslate"><span class="pre">Tpms.generate_grid_vtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.Tpms.generate_vtk"><code class="docutils literal notranslate"><span class="pre">Tpms.generate_vtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.Tpms.grid_lower_skeletal"><code class="docutils literal notranslate"><span class="pre">Tpms.grid_lower_skeletal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.Tpms.grid_sheet"><code class="docutils literal notranslate"><span class="pre">Tpms.grid_sheet</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.Tpms.grid_upper_skeletal"><code class="docutils literal notranslate"><span class="pre">Tpms.grid_upper_skeletal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.Tpms.lower_skeletal"><code class="docutils literal notranslate"><span class="pre">Tpms.lower_skeletal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.Tpms.offset"><code class="docutils literal notranslate"><span class="pre">Tpms.offset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.Tpms.offset_from_density"><code class="docutils literal notranslate"><span class="pre">Tpms.offset_from_density()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.Tpms.sheet"><code class="docutils literal notranslate"><span class="pre">Tpms.sheet</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.Tpms.skeletals"><code class="docutils literal notranslate"><span class="pre">Tpms.skeletals</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.Tpms.surface"><code class="docutils literal notranslate"><span class="pre">Tpms.surface</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.Tpms.upper_skeletal"><code class="docutils literal notranslate"><span class="pre">Tpms.upper_skeletal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#implicit-shape-microgen-shape-implicit-shape">Implicit Shape (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.implicit_shape</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.ImplicitShape"><code class="docutils literal notranslate"><span class="pre">ImplicitShape</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.ImplicitShape.evaluate"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.evaluate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.ImplicitShape.generate"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.ImplicitShape.generateVtk"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.ImplicitShape.generate_vtk"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.generate_vtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.ImplicitShape.rotate"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.rotate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.ImplicitShape.scale"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.scale()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.ImplicitShape.smooth_difference"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.smooth_difference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.ImplicitShape.smooth_intersection"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.smooth_intersection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.ImplicitShape.smooth_union"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.smooth_union()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.ImplicitShape.translate"><code class="docutils literal notranslate"><span class="pre">ImplicitShape.translate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.batch_smooth_union"><code class="docutils literal notranslate"><span class="pre">batch_smooth_union()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.blend"><code class="docutils literal notranslate"><span class="pre">blend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.difference"><code class="docutils literal notranslate"><span class="pre">difference()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.from_field"><code class="docutils literal notranslate"><span class="pre">from_field()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.implicit_box"><code class="docutils literal notranslate"><span class="pre">implicit_box()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.implicit_capsule"><code class="docutils literal notranslate"><span class="pre">implicit_capsule()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.implicit_cylinder"><code class="docutils literal notranslate"><span class="pre">implicit_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.implicit_ellipsoid"><code class="docutils literal notranslate"><span class="pre">implicit_ellipsoid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.implicit_plane"><code class="docutils literal notranslate"><span class="pre">implicit_plane()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.implicit_sphere"><code class="docutils literal notranslate"><span class="pre">implicit_sphere()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.implicit_torus"><code class="docutils literal notranslate"><span class="pre">implicit_torus()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.intersection"><code class="docutils literal notranslate"><span class="pre">intersection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.repeat"><code class="docutils literal notranslate"><span class="pre">repeat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.shell"><code class="docutils literal notranslate"><span class="pre">shell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.smooth_difference"><code class="docutils literal notranslate"><span class="pre">smooth_difference()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.smooth_intersection"><code class="docutils literal notranslate"><span class="pre">smooth_intersection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.smooth_union"><code class="docutils literal notranslate"><span class="pre">smooth_union()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_shape.union"><code class="docutils literal notranslate"><span class="pre">union()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.fischerKochS"><code class="docutils literal notranslate"><span class="pre">fischerKochS()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.fischer_koch_s"><code class="docutils literal notranslate"><span class="pre">fischer_koch_s()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.gyroid"><code class="docutils literal notranslate"><span class="pre">gyroid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.honeycomb"><code class="docutils literal notranslate"><span class="pre">honeycomb()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.honeycomb_gyroid"><code class="docutils literal notranslate"><span class="pre">honeycomb_gyroid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.honeycomb_lidinoid"><code class="docutils literal notranslate"><span class="pre">honeycomb_lidinoid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.honeycomb_schoenIWP"><code class="docutils literal notranslate"><span class="pre">honeycomb_schoenIWP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.honeycomb_schoen_iwp"><code class="docutils literal notranslate"><span class="pre">honeycomb_schoen_iwp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.honeycomb_schwarzD"><code class="docutils literal notranslate"><span class="pre">honeycomb_schwarzD()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.honeycomb_schwarzP"><code class="docutils literal notranslate"><span class="pre">honeycomb_schwarzP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.honeycomb_schwarz_d"><code class="docutils literal notranslate"><span class="pre">honeycomb_schwarz_d()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.honeycomb_schwarz_p"><code class="docutils literal notranslate"><span class="pre">honeycomb_schwarz_p()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.lidinoid"><code class="docutils literal notranslate"><span class="pre">lidinoid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.neovius"><code class="docutils literal notranslate"><span class="pre">neovius()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.pmy"><code class="docutils literal notranslate"><span class="pre">pmy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.schoenFRD"><code class="docutils literal notranslate"><span class="pre">schoenFRD()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.schoenIWP"><code class="docutils literal notranslate"><span class="pre">schoenIWP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.schoen_frd"><code class="docutils literal notranslate"><span class="pre">schoen_frd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.schoen_iwp"><code class="docutils literal notranslate"><span class="pre">schoen_iwp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.schwarzD"><code class="docutils literal notranslate"><span class="pre">schwarzD()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.schwarzP"><code class="docutils literal notranslate"><span class="pre">schwarzP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.schwarz_d"><code class="docutils literal notranslate"><span class="pre">schwarz_d()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.schwarz_p"><code class="docutils literal notranslate"><span class="pre">schwarz_p()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.split_p"><code class="docutils literal notranslate"><span class="pre">split_p()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../microgen.shape.strut_lattice.html">microgen.shape.strut_lattice subpackage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#abstract-lattice-microgen-shape-strut-lattice-abstract-lattice">Abstract Lattice (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.abstract_lattice</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.abstract_lattice.AbstractLattice"><code class="docutils literal notranslate"><span class="pre">AbstractLattice</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.abstract_lattice.AbstractLattice.base_vertices"><code class="docutils literal notranslate"><span class="pre">AbstractLattice.base_vertices</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.abstract_lattice.AbstractLattice.cad_shape"><code class="docutils literal notranslate"><span class="pre">AbstractLattice.cad_shape</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.abstract_lattice.AbstractLattice.generate"><code class="docutils literal notranslate"><span class="pre">AbstractLattice.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.abstract_lattice.AbstractLattice.generateVtk"><code class="docutils literal notranslate"><span class="pre">AbstractLattice.generateVtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.abstract_lattice.AbstractLattice.generate_vtk"><code class="docutils literal notranslate"><span class="pre">AbstractLattice.generate_vtk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.abstract_lattice.AbstractLattice.strut_heights"><code class="docutils literal notranslate"><span class="pre">AbstractLattice.strut_heights</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.abstract_lattice.AbstractLattice.strut_number"><code class="docutils literal notranslate"><span class="pre">AbstractLattice.strut_number</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.abstract_lattice.AbstractLattice.strut_vertex_pairs"><code class="docutils literal notranslate"><span class="pre">AbstractLattice.strut_vertex_pairs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.abstract_lattice.AbstractLattice.volume"><code class="docutils literal notranslate"><span class="pre">AbstractLattice.volume</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.abstract_lattice.AbstractLattice.vtk_shape"><code class="docutils literal notranslate"><span class="pre">AbstractLattice.vtk_shape</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#body-centered-cubic-microgen-shape-strut-lattice-body-centered-cubic">Body Centered Cubic (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.body_centered_cubic</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.body_centered_cubic.BodyCenteredCubic"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubic</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#cubic-microgen-shape-strut-lattice-cubic">Cubic (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.cubic</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.cubic.Cubic"><code class="docutils literal notranslate"><span class="pre">Cubic</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#cuboctahedron-microgen-shape-strut-lattice-cuboctahedron">Cuboctahedron (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.cuboctahedron</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.cuboctahedron.Cuboctahedron"><code class="docutils literal notranslate"><span class="pre">Cuboctahedron</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#custom-lattice-microgen-shape-strut-lattice-custom-lattice">Custom Lattice (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.custom_lattice</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.custom_lattice.CustomLattice"><code class="docutils literal notranslate"><span class="pre">CustomLattice</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#diamond-microgen-shape-strut-lattice-diamond">Diamond (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.diamond</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.diamond.Diamond"><code class="docutils literal notranslate"><span class="pre">Diamond</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#face-centered-cubic-microgen-shape-strut-lattice-face-centered-cubic">Face Centered Cubic (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.face_centered_cubic</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.face_centered_cubic.FaceCenteredCubic"><code class="docutils literal notranslate"><span class="pre">FaceCenteredCubic</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#octahedron-microgen-shape-strut-lattice-octahedron">Octahedron (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.octahedron</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.octahedron.Octahedron"><code class="docutils literal notranslate"><span class="pre">Octahedron</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#octet-truss-microgen-shape-strut-lattice-octet-truss">Octet-truss (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.octet_truss</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.octet_truss.OctetTruss"><code class="docutils literal notranslate"><span class="pre">OctetTruss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#rhombic-cuboctahedron-microgen-shape-strut-lattice-rhombic-cuboctahedron">Rhombic Cuboctahedron (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.rhombic_cuboctahedron</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.rhombic_cuboctahedron.RhombicCuboctahedron"><code class="docutils literal notranslate"><span class="pre">RhombicCuboctahedron</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#rhombic-dodecahedron-microgen-shape-strut-lattice-rhombic-dodecahedron">Rhombic Dodecahedron (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.rhombic_dodecahedron</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.rhombic_dodecahedron.RhombicDodecahedron"><code class="docutils literal notranslate"><span class="pre">RhombicDodecahedron</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#truncated-cube-microgen-shape-strut-lattice-truncated-cube">Truncated Cube (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.truncated_cube</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.truncated_cube.TruncatedCube"><code class="docutils literal notranslate"><span class="pre">TruncatedCube</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#truncated-cuboctahedron-microgen-shape-strut-lattice-truncated-cuboctahedron">Truncated Cuboctahedron (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.truncated_cuboctahedron</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.truncated_cuboctahedron.TruncatedCuboctahedron"><code class="docutils literal notranslate"><span class="pre">TruncatedCuboctahedron</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#truncated-octahedron-microgen-shape-strut-lattice-truncated-octahedron">Truncated Octahedron (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.truncated_octahedron</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.truncated_octahedron.TruncatedOctahedron"><code class="docutils literal notranslate"><span class="pre">TruncatedOctahedron</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="basic_shapes.html">Geometries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basic_shapes.html#basic-shapes">Basic shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_shapes.html#platon-polyhedra">Platon polyhedra</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lattices.html">Lattices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lattices.html#octet-truss">Octet-truss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lattices.html#honeycomb">Honeycomb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lattices.html#preset-strut-based-lattices">Preset strut-based lattices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lattices.html#custom-strut-based-lattices">Custom strut-based lattices</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Implicit Shapes (F-rep)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#primitives-and-boolean-operations">Primitives and Boolean Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implicit-lattices">Implicit Lattices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trabecular-bone">Trabecular Bone</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tpms.html">Triply Periodic Minimal Surfaces (TPMS)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tpms.html#gyroid">Gyroid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tpms.html#tpms-available">TPMS available</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tpms.html#spherical-gyroid">Spherical gyroid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tpms.html#shell">Shell</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3d_operations.html">3D operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3d_operations.html#repeating-unit-geometry">Repeating unit geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3d_operations.html#raster-ellipsoid">Raster Ellipsoid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3d_operations.html#voronoi">Voronoi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3d_operations.html#voronoi-gyroid">Voronoi gyroid</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mesh.html">Mesh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mesh.html#id1">Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mesh.html#periodic-mesh">Periodic Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mesh.html#mmg">mmg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mesh.html#mmg-voronoi">mmg Voronoi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mesh.html#periodic-remeshing">Periodic remeshing</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #24445C" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Microgen</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Implicit Shapes (F-rep)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/examples/implicit_shapes.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="implicit-shapes-f-rep">
+<span id="rst-implicitshapes"></span><h1>Implicit Shapes (F-rep)<a class="headerlink" href="#implicit-shapes-f-rep" title="Link to this heading"></a></h1>
+<section id="primitives-and-boolean-operations">
+<h2>Primitives and Boolean Operations<a class="headerlink" href="#primitives-and-boolean-operations" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Implicit shapes: primitives, boolean operations, and smooth blending.</span>
+
+<span class="sd">Demonstrates the F-rep (Function Representation) framework in microgen</span>
+<span class="sd">for creating implicit shapes and combining them with hard and smooth</span>
+<span class="sd">boolean operations.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyvista</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pv</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">microgen.shape.implicit_shape</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">batch_smooth_union</span><span class="p">,</span>
+    <span class="n">implicit_box</span><span class="p">,</span>
+    <span class="n">implicit_sphere</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Create primitives</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="n">sphere</span> <span class="o">=</span> <span class="n">implicit_sphere</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.45</span><span class="p">)</span>
+<span class="n">box</span> <span class="o">=</span> <span class="n">implicit_box</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">half_extents</span><span class="o">=</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+
+<span class="n">BOUNDS</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="n">RES</span> <span class="o">=</span> <span class="mi">80</span>
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Boolean operations</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="n">union</span> <span class="o">=</span> <span class="n">sphere</span> <span class="o">|</span> <span class="n">box</span>
+<span class="n">intersection</span> <span class="o">=</span> <span class="n">sphere</span> <span class="o">&amp;</span> <span class="n">box</span>
+<span class="n">difference</span> <span class="o">=</span> <span class="n">sphere</span> <span class="o">-</span> <span class="n">box</span>
+<span class="n">smooth</span> <span class="o">=</span> <span class="n">sphere</span><span class="o">.</span><span class="n">smooth_union</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Visualize in a 2x2 grid</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="n">plotter</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">window_size</span><span class="o">=</span><span class="p">(</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">1200</span><span class="p">))</span>
+
+<span class="n">ops</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Union (A | B)&quot;</span><span class="p">,</span> <span class="n">union</span><span class="p">,</span> <span class="s2">&quot;steelblue&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Intersection (A &amp; B)&quot;</span><span class="p">,</span> <span class="n">intersection</span><span class="p">,</span> <span class="s2">&quot;coral&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Difference (A - B)&quot;</span><span class="p">,</span> <span class="n">difference</span><span class="p">,</span> <span class="s2">&quot;mediumseagreen&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Smooth Union (k=0.3)&quot;</span><span class="p">,</span> <span class="n">smooth</span><span class="p">,</span> <span class="s2">&quot;orchid&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">ops</span><span class="p">:</span>
+    <span class="n">mesh</span> <span class="o">=</span> <span class="n">shape</span><span class="o">.</span><span class="n">generate_vtk</span><span class="p">(</span><span class="n">bounds</span><span class="o">=</span><span class="n">BOUNDS</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="n">RES</span><span class="p">)</span>
+    <span class="n">plotter</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">)</span>
+    <span class="n">plotter</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">plotter</span><span class="o">.</span><span class="n">link_views</span><span class="p">()</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Batch smooth union — combining many primitives efficiently</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">spheres</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">implicit_sphere</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.15</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">combined</span> <span class="o">=</span> <span class="n">batch_smooth_union</span><span class="p">(</span><span class="n">spheres</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">combined</span><span class="o">.</span><span class="n">generate_vtk</span><span class="p">(</span><span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">plotter2</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="n">plotter2</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="s2">&quot;Batch smooth union (20 spheres, k=0.1)&quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plotter2</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;coral&quot;</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plotter2</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_static/examples/implicit_booleans.png" src="_static/examples/implicit_booleans.png" />
+</section>
+<section id="implicit-lattices">
+<h2>Implicit Lattices<a class="headerlink" href="#implicit-lattices" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Implicit (F-rep) lattice construction and comparison with strut lattices.</span>
+
+<span class="sd">This example builds BCC, Octet-Truss, and Cubic lattices using the F-rep</span>
+<span class="sd">implicit modeling framework (capsule primitives + smooth union) and compares</span>
+<span class="sd">them side-by-side with the original strut-based lattice meshes from microgen.</span>
+
+<span class="sd">A second comparison shows the effect of varying the smoothness parameter *k*</span>
+<span class="sd">on a BCC lattice — from sharp joints (k ≈ 0) to heavily rounded blends.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">product</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyvista</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pv</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">microgen</span><span class="w"> </span><span class="kn">import</span> <span class="n">BodyCenteredCubic</span><span class="p">,</span> <span class="n">Cubic</span><span class="p">,</span> <span class="n">OctetTruss</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">microgen.shape.implicit_shape</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ImplicitShape</span><span class="p">,</span>
+    <span class="n">batch_smooth_union</span><span class="p">,</span>
+    <span class="n">implicit_capsule</span><span class="p">,</span>
+    <span class="n">implicit_sphere</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Helpers</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="n">CELL</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># unit cell size</span>
+<span class="n">HALF</span> <span class="o">=</span> <span class="n">CELL</span> <span class="o">/</span> <span class="mf">2.0</span>
+<span class="n">STRUT_RADIUS</span> <span class="o">=</span> <span class="mf">0.08</span>
+<span class="n">RESOLUTION</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">BOUNDS</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">HALF</span> <span class="o">*</span> <span class="mf">1.05</span><span class="p">,</span> <span class="n">HALF</span> <span class="o">*</span> <span class="mf">1.05</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span>  <span class="c1"># slightly larger than unit cube</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_cube_corners</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">([</span><span class="o">-</span><span class="n">HALF</span><span class="p">,</span> <span class="n">HALF</span><span class="p">],</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">)))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_face_centers</span><span class="p">():</span>
+    <span class="n">centers</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">sign</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
+            <span class="n">pt</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+            <span class="n">pt</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">=</span> <span class="n">sign</span> <span class="o">*</span> <span class="n">HALF</span>
+            <span class="n">centers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">centers</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_build_implicit_lattice</span><span class="p">(</span>
+    <span class="n">vertices</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">pairs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span>
+    <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">add_joints</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ImplicitShape</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Build an implicit lattice from vertices and connectivity.</span>
+
+<span class="sd">    Each strut is an implicit capsule; joints are implicit spheres.</span>
+<span class="sd">    All primitives are combined with ``batch_smooth_union`` to avoid</span>
+<span class="sd">    recursion-depth issues with large primitive counts.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">primitives</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ImplicitShape</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+        <span class="n">primitives</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">implicit_capsule</span><span class="p">(</span>
+                <span class="n">start</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">vertices</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span>
+                <span class="n">end</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">vertices</span><span class="p">[</span><span class="n">j</span><span class="p">]),</span>
+                <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">add_joints</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vertices</span><span class="p">:</span>
+            <span class="n">primitives</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">implicit_sphere</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">batch_smooth_union</span><span class="p">(</span><span class="n">primitives</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Lattice definitions (same topology as microgen strut lattices)</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cubic_lattice</span><span class="p">(</span>
+    <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">STRUT_RADIUS</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ImplicitShape</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Cubic lattice: 8 corner nodes, 12 edge struts.&quot;&quot;&quot;</span>
+    <span class="n">verts</span> <span class="o">=</span> <span class="n">_cube_corners</span><span class="p">()</span>
+    <span class="n">pairs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">verts</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">verts</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">verts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">verts</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">CELL</span> <span class="o">+</span> <span class="mf">1e-6</span><span class="p">:</span>
+                <span class="n">pairs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">_build_implicit_lattice</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">pairs</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">bcc_lattice</span><span class="p">(</span>
+    <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">STRUT_RADIUS</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ImplicitShape</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Body-centered cubic: center node connected to 8 corners.&quot;&quot;&quot;</span>
+    <span class="n">corners</span> <span class="o">=</span> <span class="n">_cube_corners</span><span class="p">()</span>
+    <span class="n">verts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(([[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]],</span> <span class="n">corners</span><span class="p">))</span>
+    <span class="n">pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">_build_implicit_lattice</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">pairs</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">octet_truss_lattice</span><span class="p">(</span>
+    <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">STRUT_RADIUS</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ImplicitShape</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Octet-truss: 8 corners + 6 face centers, connected at distance √2/2.&quot;&quot;&quot;</span>
+    <span class="n">corners</span> <span class="o">=</span> <span class="n">_cube_corners</span><span class="p">()</span>
+    <span class="n">faces</span> <span class="o">=</span> <span class="n">_face_centers</span><span class="p">()</span>
+    <span class="n">verts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">corners</span><span class="p">,</span> <span class="n">faces</span><span class="p">))</span>
+    <span class="n">connection_dist</span> <span class="o">=</span> <span class="n">CELL</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-5</span>
+    <span class="n">pairs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">verts</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">verts</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">verts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">verts</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">connection_dist</span><span class="p">:</span>
+                <span class="n">pairs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">_build_implicit_lattice</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">pairs</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># 1. Comparison: original strut lattice vs. implicit lattice (k=0 and k&gt;0)</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Building comparison: strut lattices vs implicit lattices ...&quot;</span><span class="p">)</span>
+
+<span class="n">lattice_defs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;Cubic&quot;</span><span class="p">,</span> <span class="n">Cubic</span><span class="p">,</span> <span class="n">cubic_lattice</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;BCC&quot;</span><span class="p">,</span> <span class="n">BodyCenteredCubic</span><span class="p">,</span> <span class="n">bcc_lattice</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Octet-Truss&quot;</span><span class="p">,</span> <span class="n">OctetTruss</span><span class="p">,</span> <span class="n">octet_truss_lattice</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="n">plotter</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lattice_defs</span><span class="p">),</span> <span class="mi">3</span><span class="p">),</span> <span class="n">window_size</span><span class="o">=</span><span class="p">(</span><span class="mi">1800</span><span class="p">,</span> <span class="mi">1800</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">StrutClass</span><span class="p">,</span> <span class="n">implicit_fn</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lattice_defs</span><span class="p">):</span>
+    <span class="c1"># Column 0: original strut lattice</span>
+    <span class="n">strut</span> <span class="o">=</span> <span class="n">StrutClass</span><span class="p">(</span><span class="n">strut_radius</span><span class="o">=</span><span class="n">STRUT_RADIUS</span><span class="p">)</span>
+    <span class="n">strut_mesh</span> <span class="o">=</span> <span class="n">strut</span><span class="o">.</span><span class="n">generate_vtk</span><span class="p">()</span>
+
+    <span class="n">plotter</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">plotter</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="se">\n</span><span class="s2">(strut)&quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">strut_mesh</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;steelblue&quot;</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># Column 1: implicit lattice, hard union (k=0)</span>
+    <span class="n">imp_hard</span> <span class="o">=</span> <span class="n">implicit_fn</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="n">STRUT_RADIUS</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">mesh_hard</span> <span class="o">=</span> <span class="n">imp_hard</span><span class="o">.</span><span class="n">generate_vtk</span><span class="p">(</span><span class="n">bounds</span><span class="o">=</span><span class="n">BOUNDS</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="n">RESOLUTION</span><span class="p">)</span>
+
+    <span class="n">plotter</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plotter</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="se">\n</span><span class="s2">implicit k=0&quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh_hard</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;coral&quot;</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># Column 2: implicit lattice, smooth union (k=0.15)</span>
+    <span class="n">imp_smooth</span> <span class="o">=</span> <span class="n">implicit_fn</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="n">STRUT_RADIUS</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.15</span><span class="p">)</span>
+    <span class="n">mesh_smooth</span> <span class="o">=</span> <span class="n">imp_smooth</span><span class="o">.</span><span class="n">generate_vtk</span><span class="p">(</span><span class="n">bounds</span><span class="o">=</span><span class="n">BOUNDS</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="n">RESOLUTION</span><span class="p">)</span>
+
+    <span class="n">plotter</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">plotter</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="se">\n</span><span class="s2">implicit k=0.15&quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh_smooth</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;mediumseagreen&quot;</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">plotter</span><span class="o">.</span><span class="n">link_views</span><span class="p">()</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># 2. Smoothness sweep on BCC lattice</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Building smoothness sweep on BCC lattice ...&quot;</span><span class="p">)</span>
+
+<span class="n">k_values</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">]</span>
+<span class="n">n_k</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">k_values</span><span class="p">)</span>
+
+<span class="n">plotter2</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_k</span><span class="p">),</span> <span class="n">window_size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span> <span class="o">*</span> <span class="n">n_k</span><span class="p">,</span> <span class="mi">500</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">k_values</span><span class="p">):</span>
+    <span class="n">bcc</span> <span class="o">=</span> <span class="n">bcc_lattice</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="n">STRUT_RADIUS</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">mesh</span> <span class="o">=</span> <span class="n">bcc</span><span class="o">.</span><span class="n">generate_vtk</span><span class="p">(</span><span class="n">bounds</span><span class="o">=</span><span class="n">BOUNDS</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="n">RESOLUTION</span><span class="p">)</span>
+
+    <span class="n">plotter2</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">col</span><span class="p">)</span>
+    <span class="n">plotter2</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;k = </span><span class="si">{</span><span class="n">k</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">plotter2</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;coral&quot;</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">plotter2</span><span class="o">.</span><span class="n">link_views</span><span class="p">()</span>
+<span class="n">plotter2</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_static/examples/implicit_lattice.png" src="_static/examples/implicit_lattice.png" />
+</section>
+<section id="trabecular-bone">
+<h2>Trabecular Bone<a class="headerlink" href="#trabecular-bone" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Generate a trabecular bone-like structure from Voronoi edges.</span>
+
+<span class="sd">Seed points are scattered in a cube, the 3D Voronoi tessellation provides</span>
+<span class="sd">the connectivity (edges with natural degree-4 nodes), and each edge becomes</span>
+<span class="sd">an implicit capsule.  All primitives are combined with smooth union and</span>
+<span class="sd">intersected with a box for a clean cross-section.</span>
+
+<span class="sd">Reference: Voronoi tessellation is the standard approach in literature for</span>
+<span class="sd">synthetic trabecular bone scaffolds — interior Voronoi vertices have exactly</span>
+<span class="sd">4 edges, matching real trabecular node valence.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyvista</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pv</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial</span><span class="w"> </span><span class="kn">import</span> <span class="n">Voronoi</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">microgen.shape.implicit_shape</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">batch_smooth_union</span><span class="p">,</span>
+    <span class="n">implicit_box</span><span class="p">,</span>
+    <span class="n">implicit_capsule</span><span class="p">,</span>
+    <span class="n">implicit_sphere</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Parameters</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="n">SEED</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">N_POINTS</span> <span class="o">=</span> <span class="mi">150</span>  <span class="c1"># Voronoi seed count</span>
+
+<span class="c1"># Domain</span>
+<span class="n">DOMAIN_SIZE</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="n">HALF</span> <span class="o">=</span> <span class="n">DOMAIN_SIZE</span> <span class="o">/</span> <span class="mf">2.0</span>
+
+<span class="c1"># Clip box — the clean cut</span>
+<span class="n">BOX_HALF</span> <span class="o">=</span> <span class="mf">0.75</span>
+
+<span class="c1"># Strut geometry (trabecular dimensions)</span>
+<span class="n">RADIUS_MEAN</span> <span class="o">=</span> <span class="mf">0.035</span>  <span class="c1"># ~Tb.Th / 2</span>
+<span class="n">RADIUS_STD</span> <span class="o">=</span> <span class="mf">0.006</span>
+
+<span class="c1"># Smooth blending</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mf">0.03</span>
+
+<span class="c1"># Meshing</span>
+<span class="n">RESOLUTION</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">BOUNDS</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">BOX_HALF</span> <span class="o">*</span> <span class="mf">1.02</span><span class="p">,</span> <span class="n">BOX_HALF</span> <span class="o">*</span> <span class="mf">1.02</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span>
+
+<span class="c1"># Lloyd relaxation iterations (regularizes cell sizes while keeping randomness)</span>
+<span class="n">LLOYD_ITERATIONS</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Generate seed points + Lloyd relaxation</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
+
+<span class="c1"># Scatter seeds in a region larger than the clip box</span>
+<span class="n">seeds</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">HALF</span><span class="p">,</span> <span class="n">HALF</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">N_POINTS</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">lloyd_relaxation</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="n">bounds_min</span><span class="p">,</span> <span class="n">bounds_max</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Move each seed toward the centroid of its Voronoi cell.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iterations</span><span class="p">):</span>
+        <span class="n">vor</span> <span class="o">=</span> <span class="n">Voronoi</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+        <span class="n">new_pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">region_idx</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vor</span><span class="o">.</span><span class="n">point_region</span><span class="p">):</span>
+            <span class="n">region</span> <span class="o">=</span> <span class="n">vor</span><span class="o">.</span><span class="n">regions</span><span class="p">[</span><span class="n">region_idx</span><span class="p">]</span>
+            <span class="k">if</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">region</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">region</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">continue</span>  <span class="c1"># skip open/infinite regions</span>
+            <span class="n">verts</span> <span class="o">=</span> <span class="n">vor</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">region</span><span class="p">]</span>
+            <span class="n">centroid</span> <span class="o">=</span> <span class="n">verts</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">centroid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">centroid</span><span class="p">,</span> <span class="n">bounds_min</span><span class="p">,</span> <span class="n">bounds_max</span><span class="p">)</span>
+            <span class="n">new_pts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">centroid</span>
+        <span class="n">pts</span> <span class="o">=</span> <span class="n">new_pts</span>
+    <span class="k">return</span> <span class="n">pts</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Lloyd relaxation (</span><span class="si">{</span><span class="n">LLOYD_ITERATIONS</span><span class="si">}</span><span class="s2"> iterations) on </span><span class="si">{</span><span class="n">N_POINTS</span><span class="si">}</span><span class="s2"> seeds ...&quot;</span><span class="p">)</span>
+<span class="n">seeds</span> <span class="o">=</span> <span class="n">lloyd_relaxation</span><span class="p">(</span><span class="n">seeds</span><span class="p">,</span> <span class="o">-</span><span class="n">HALF</span><span class="p">,</span> <span class="n">HALF</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="n">LLOYD_ITERATIONS</span><span class="p">)</span>
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Compute Voronoi and extract edges inside the clip box</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Computing Voronoi tessellation ...&quot;</span><span class="p">)</span>
+<span class="n">vor</span> <span class="o">=</span> <span class="n">Voronoi</span><span class="p">(</span><span class="n">seeds</span><span class="p">)</span>
+
+<span class="n">margin</span> <span class="o">=</span> <span class="n">BOX_HALF</span> <span class="o">+</span> <span class="mf">0.15</span>
+<span class="n">edge_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">ridge</span> <span class="ow">in</span> <span class="n">vor</span><span class="o">.</span><span class="n">ridge_vertices</span><span class="p">:</span>
+    <span class="k">if</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">ridge</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ridge</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span> <span class="o">=</span> <span class="n">ridge</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ridge</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">]</span>
+        <span class="n">edge_set</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="nb">min</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)))</span>
+
+<span class="c1"># Filter: keep edges near the clip box</span>
+<span class="n">edges</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span> <span class="ow">in</span> <span class="n">edge_set</span><span class="p">:</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">vor</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">v1</span><span class="p">]</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">vor</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">v2</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">margin</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">margin</span><span class="p">):</span>
+        <span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span><span class="si">}</span><span class="s2"> finite edges near clip box&quot;</span><span class="p">)</span>
+
+<span class="c1"># Collect unique vertex indices used</span>
+<span class="n">used_verts</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+    <span class="n">used_verts</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+    <span class="n">used_verts</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">used_verts</span><span class="p">)</span><span class="si">}</span><span class="s2"> Voronoi vertices (nodes)&quot;</span><span class="p">)</span>
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Build implicit primitives</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Building </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span><span class="si">}</span><span class="s2"> capsules + </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">used_verts</span><span class="p">)</span><span class="si">}</span><span class="s2"> joint spheres ...&quot;</span><span class="p">)</span>
+
+<span class="n">radii</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">RADIUS_MEAN</span><span class="p">,</span> <span class="n">RADIUS_STD</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">)),</span> <span class="mf">0.015</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="n">primitives</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">edges</span><span class="p">):</span>
+    <span class="n">primitives</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">implicit_capsule</span><span class="p">(</span>
+            <span class="n">start</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">vor</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">v1</span><span class="p">]),</span>
+            <span class="n">end</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">vor</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">v2</span><span class="p">]),</span>
+            <span class="n">radius</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">radii</span><span class="p">[</span><span class="n">idx</span><span class="p">]),</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+<span class="k">for</span> <span class="n">vi</span> <span class="ow">in</span> <span class="n">used_verts</span><span class="p">:</span>
+    <span class="n">primitives</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">implicit_sphere</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">vor</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">vi</span><span class="p">]),</span> <span class="n">radius</span><span class="o">=</span><span class="n">RADIUS_MEAN</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">)</span>
+    <span class="p">)</span>
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Combine with smooth union + box intersection</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Combining </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">primitives</span><span class="p">)</span><span class="si">}</span><span class="s2"> primitives with batch smooth union (k=</span><span class="si">{</span><span class="n">K</span><span class="si">}</span><span class="s2">) ...&quot;</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">batch_smooth_union</span><span class="p">(</span><span class="n">primitives</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">K</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Intersecting with box (half-extent=</span><span class="si">{</span><span class="n">BOX_HALF</span><span class="si">}</span><span class="s2">) ...&quot;</span><span class="p">)</span>
+<span class="n">box</span> <span class="o">=</span> <span class="n">implicit_box</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">half_extents</span><span class="o">=</span><span class="p">(</span><span class="n">BOX_HALF</span><span class="p">,</span> <span class="n">BOX_HALF</span><span class="p">,</span> <span class="n">BOX_HALF</span><span class="p">))</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">&amp;</span> <span class="n">box</span>
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Mesh and visualize</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Meshing (resolution=</span><span class="si">{</span><span class="n">RESOLUTION</span><span class="si">}</span><span class="s2">) ...&quot;</span><span class="p">)</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">generate_vtk</span><span class="p">(</span><span class="n">bounds</span><span class="o">=</span><span class="n">BOUNDS</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="n">RESOLUTION</span><span class="p">)</span>
+
+<span class="n">plotter</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="s2">&quot;Trabecular Bone (Voronoi)&quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;ivory&quot;</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_static/examples/trabecular_bone.png" src="_static/examples/trabecular_bone.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="lattices.html" class="btn btn-neutral float-left" title="Lattices" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tpms.html" class="btn btn-neutral float-right" title="Triply Periodic Minimal Surfaces (TPMS)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, 3MAH.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
