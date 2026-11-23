@@ -1,0 +1,142 @@
+
+:orphan:
+
+.. _sphx_glr_sg_execution_times:
+
+
+Computation times
+=================
+**06:08.105** total execution time for 36 files **from all galleries**:
+
+.. container::
+
+  .. raw:: html
+
+    <style scoped>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script type="text/javascript" class="init">
+    $(document).ready( function () {
+        $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+    } );
+    </script>
+
+  .. list-table::
+   :header-rows: 1
+   :class: table table-striped sg-datatable
+
+   * - Example
+     - Time
+     - Mem (MB)
+   * - :ref:`sphx_glr_examples_TPMS_tpms_sphere.py` (``../examples/TPMS/tpms_sphere.py``)
+     - 00:55.086
+     - 0.0
+   * - :ref:`sphx_glr_examples_TPMS_infill_gyroid.py` (``../examples/TPMS/infill_gyroid.py``)
+     - 00:47.073
+     - 0.0
+   * - :ref:`sphx_glr_examples_TPMS_coordinate_frames.py` (``../examples/TPMS/coordinate_frames.py``)
+     - 00:45.885
+     - 0.0
+   * - :ref:`sphx_glr_examples_TPMS_infill_bunny.py` (``../examples/TPMS/infill_bunny.py``)
+     - 00:27.426
+     - 0.0
+   * - :ref:`sphx_glr_examples_TPMS_spherical.py` (``../examples/TPMS/spherical.py``)
+     - 00:20.520
+     - 0.0
+   * - :ref:`sphx_glr_examples_Lattices_honeycomb.py` (``../examples/Lattices/honeycomb.py``)
+     - 00:19.731
+     - 0.0
+   * - :ref:`sphx_glr_examples_Spinodoids_spinodoid.py` (``../examples/Spinodoids/spinodoid.py``)
+     - 00:17.195
+     - 0.0
+   * - :ref:`sphx_glr_examples_TPMS_graded_cell_type.py` (``../examples/TPMS/graded_cell_type.py``)
+     - 00:14.578
+     - 0.0
+   * - :ref:`sphx_glr_examples_3Doperations_raster_ellipsoid.py` (``../examples/3Doperations/raster_ellipsoid.py``)
+     - 00:14.511
+     - 0.0
+   * - :ref:`sphx_glr_examples_Lattices_custom_auxetic_lattice.py` (``../examples/Lattices/custom_auxetic_lattice.py``)
+     - 00:09.849
+     - 0.0
+   * - :ref:`sphx_glr_examples_RVE_fibres_rve.py` (``../examples/RVE/fibres_rve.py``)
+     - 00:09.080
+     - 0.0
+   * - :ref:`sphx_glr_examples_Lattices_octet_truss.py` (``../examples/Lattices/octet_truss.py``)
+     - 00:07.778
+     - 0.0
+   * - :ref:`sphx_glr_examples_Lattices_preset_lattices.py` (``../examples/Lattices/preset_lattices.py``)
+     - 00:07.679
+     - 0.0
+   * - :ref:`sphx_glr_examples_TPMS_cylindrical_graded.py` (``../examples/TPMS/cylindrical_graded.py``)
+     - 00:07.267
+     - 0.0
+   * - :ref:`sphx_glr_examples_ImplicitShapes_implicit_booleans.py` (``../examples/ImplicitShapes/implicit_booleans.py``)
+     - 00:06.787
+     - 0.0
+   * - :ref:`sphx_glr_examples_TPMS_tpms_shell.py` (``../examples/TPMS/tpms_shell.py``)
+     - 00:06.742
+     - 0.0
+   * - :ref:`sphx_glr_examples_RVE_spheres_rve.py` (``../examples/RVE/spheres_rve.py``)
+     - 00:06.588
+     - 0.0
+   * - :ref:`sphx_glr_examples_3Doperations_repeat_shape.py` (``../examples/3Doperations/repeat_shape.py``)
+     - 00:06.327
+     - 0.0
+   * - :ref:`sphx_glr_examples_3Doperations_voronoi.py` (``../examples/3Doperations/voronoi.py``)
+     - 00:05.826
+     - 0.0
+   * - :ref:`sphx_glr_examples_TPMS_tpms_surfaces.py` (``../examples/TPMS/tpms_surfaces.py``)
+     - 00:05.485
+     - 0.0
+   * - :ref:`sphx_glr_examples_TPMS_infill_graded_distance.py` (``../examples/TPMS/infill_graded_distance.py``)
+     - 00:04.630
+     - 0.0
+   * - :ref:`sphx_glr_examples_TPMS_graded_cell_size.py` (``../examples/TPMS/graded_cell_size.py``)
+     - 00:04.498
+     - 0.0
+   * - :ref:`sphx_glr_examples_Fibers_fibers.py` (``../examples/Fibers/fibers.py``)
+     - 00:04.189
+     - 0.0
+   * - :ref:`sphx_glr_examples_TPMS_fischer_koch_s.py` (``../examples/TPMS/fischer_koch_s.py``)
+     - 00:04.051
+     - 0.0
+   * - :ref:`sphx_glr_examples_BasicShapes_platonic_solids.py` (``../examples/BasicShapes/platonic_solids.py``)
+     - 00:03.040
+     - 0.0
+   * - :ref:`sphx_glr_examples_ImplicitShapes_gyroid_implicit_phase.py` (``../examples/ImplicitShapes/gyroid_implicit_phase.py``)
+     - 00:02.574
+     - 0.0
+   * - :ref:`sphx_glr_examples_TPMS_graded_density.py` (``../examples/TPMS/graded_density.py``)
+     - 00:01.377
+     - 0.0
+   * - :ref:`sphx_glr_examples_TPMS_gyroid.py` (``../examples/TPMS/gyroid.py``)
+     - 00:00.791
+     - 0.0
+   * - :ref:`sphx_glr_examples_TPMS_cylindrical.py` (``../examples/TPMS/cylindrical.py``)
+     - 00:00.583
+     - 0.0
+   * - :ref:`sphx_glr_examples_TPMS_cylindrical_rotated.py` (``../examples/TPMS/cylindrical_rotated.py``)
+     - 00:00.569
+     - 0.0
+   * - :ref:`sphx_glr_examples_BasicShapes_shapes.py` (``../examples/BasicShapes/shapes.py``)
+     - 00:00.391
+     - 0.0
+   * - :ref:`sphx_glr_examples_3Doperations_voronoi_gyroid.py` (``../examples/3Doperations/voronoi_gyroid.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_examples_Mesh_mmg3d.py` (``../examples/Mesh/mmg3d.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_examples_Mesh_mmg_voronoi.py` (``../examples/Mesh/mmg_voronoi.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_examples_Mesh_periodic_gyroid_remesh.py` (``../examples/Mesh/periodic_gyroid_remesh.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_examples_Mesh_remesh.py` (``../examples/Mesh/remesh.py``)
+     - 00:00.000
+     - 0.0
