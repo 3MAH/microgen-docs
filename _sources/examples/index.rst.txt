@@ -1,0 +1,1001 @@
+:orphan:
+
+.. _examples:
+
+Examples
+========
+
+Each example is a standalone script: download it at the bottom of its page and
+run it with ``python <name>.py``. Most of them are run at each documentation
+build and the 3D scenes can be rotated in the *Interactive Scene* tab. Examples
+that need the optional CAD backend say so (``pip install microgen[cad]``).
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+.. _examples_basic_shapes:
+
+Basic shapes
+------------
+
+Elementary shapes (box, sphere, cylinder, capsule, ellipsoid, extruded polygon,
+polyhedra) used as building blocks of microstructures.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Read the five Platonic solids from Wavefront .obj files with microgen.shape.polyhedron.read_obj and build them as microgen.Polyhedron shapes.">
+
+.. only:: html
+
+  .. image:: /examples/BasicShapes/images/thumb/sphx_glr_platonic_solids_thumb.png
+    :alt:
+
+  :doc:`/examples/BasicShapes/platonic_solids`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Platonic solids</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Create the elementary shapes of microgen with microgen.shape.new_geometry and export them as a single CAD compound.">
+
+.. only:: html
+
+  .. image:: /examples/BasicShapes/images/thumb/sphx_glr_shapes_thumb.png
+    :alt:
+
+  :doc:`/examples/BasicShapes/shapes`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Basic shapes</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /examples/BasicShapes/platonic_solids
+   /examples/BasicShapes/shapes
+
+.. _examples_tpms:
+
+Triply periodic minimal surfaces (TPMS)
+---------------------------------------
+
+Sheet and skeletal TPMS, density and cell-size grading, morphing between TPMS
+families, cylindrical, spherical and swept coordinate frames, and infill of
+arbitrary meshes.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Three geometries built with the parametric-grid TPMS classes, each clipped by a y plane so the interior is visible:">
+
+.. only:: html
+
+  .. image:: /examples/TPMS/images/thumb/sphx_glr_coordinate_frames_thumb.png
+    :alt:
+
+  :doc:`/examples/TPMS/coordinate_frames`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Spherical, cylindrical and swept frames</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A gyroid mapped onto a cylindrical coordinate frame with microgen.CylindricalTpms.">
+
+.. only:: html
+
+  .. image:: /examples/TPMS/images/thumb/sphx_glr_cylindrical_thumb.png
+    :alt:
+
+  :doc:`/examples/TPMS/cylindrical`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Cylindrical gyroid</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A cylindrical gyroid whose offset increases with the radius, from an empty core to a fully dense skin.">
+
+.. only:: html
+
+  .. image:: /examples/TPMS/images/thumb/sphx_glr_cylindrical_graded_thumb.png
+    :alt:
+
+  :doc:`/examples/TPMS/cylindrical_graded`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Radially graded cylindrical gyroid</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A cylindrical gyroid whose local grid is rotated by 45 degrees about z with a scipy.spatial.transform.Rotation.">
+
+.. only:: html
+
+  .. image:: /examples/TPMS/images/thumb/sphx_glr_cylindrical_rotated_thumb.png
+    :alt:
+
+  :doc:`/examples/TPMS/cylindrical_rotated`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rotated cylindrical gyroid</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The zero level set of the Fischer-Koch S function on a 5 x 5 x 5 array of cells.">
+
+.. only:: html
+
+  .. image:: /examples/TPMS/images/thumb/sphx_glr_fischer_koch_s_thumb.png
+    :alt:
+
+  :doc:`/examples/TPMS/fischer_koch_s`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Fischer-Koch S surface</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The closed-form TPMS functions are short truncated Fourier series. fourier_series builds a surface function from a list of integer modes, amplitudes and phases; here the six modes of the gyroid give back the same sheet as gyroid.">
+
+.. only:: html
+
+  .. image:: /examples/TPMS/images/thumb/sphx_glr_fourier_series_gyroid_thumb.png
+    :alt:
+
+  :doc:`/examples/TPMS/fourier_series_gyroid`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Gyroid from its Fourier modes</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Any set of integer Fourier modes gives a triply periodic surface, minimal or not.  Back row: a gyroid, and the same gyroid perturbed by a second harmonic. Front row: a cubic surface built from two shells of modes, and a surface with random amplitudes and phases.  All of them go through Tpms like the closed-form surface functions.">
+
+.. only:: html
+
+  .. image:: /examples/TPMS/images/thumb/sphx_glr_fourier_series_surfaces_thumb.png
+    :alt:
+
+  :doc:`/examples/TPMS/fourier_series_surfaces`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Generic triply periodic surfaces</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A gyroid whose cell size follows a sigmoid transition along x, from 2 to 4. Linear and Gaussian transitions are also given.">
+
+.. only:: html
+
+  .. image:: /examples/TPMS/images/thumb/sphx_glr_graded_cell_size_thumb.png
+    :alt:
+
+  :doc:`/examples/TPMS/graded_cell_size`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Cell size grading</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Continuous morphing between Schwarz P, gyroid, Fischer-Koch S and Schwarz D.">
+
+.. only:: html
+
+  .. image:: /examples/TPMS/images/thumb/sphx_glr_graded_cell_type_thumb.png
+    :alt:
+
+  :doc:`/examples/TPMS/graded_cell_type`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Morphing between TPMS types</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A gyroid sheet whose offset varies linearly along x. The density does not vary linearly with the offset.">
+
+.. only:: html
+
+  .. image:: /examples/TPMS/images/thumb/sphx_glr_graded_density_thumb.png
+    :alt:
+
+  :doc:`/examples/TPMS/graded_density`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Density grading</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A gyroid sheet of relative density 0.3, exported as an STL surface mesh.">
+
+.. only:: html
+
+  .. image:: /examples/TPMS/images/thumb/sphx_glr_gyroid_thumb.png
+    :alt:
+
+  :doc:`/examples/TPMS/gyroid`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Gyroid</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Fill the Stanford bunny with a gyroid with microgen.Infill.">
+
+.. only:: html
+
+  .. image:: /examples/TPMS/images/thumb/sphx_glr_infill_bunny_thumb.png
+    :alt:
+
+  :doc:`/examples/TPMS/infill_bunny`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Gyroid infill of a mesh</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Fill the Stanford bunny with a gyroid whose offset is given by microgen.NormedDistance: thin near the skin, thick in the core. The infill is clipped to show the inside.">
+
+.. only:: html
+
+  .. image:: /examples/TPMS/images/thumb/sphx_glr_infill_graded_distance_thumb.png
+    :alt:
+
+  :doc:`/examples/TPMS/infill_graded_distance`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Infill graded by the distance to the surface</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A gyroid sheet used as the envelope of a finer gyroid infill: a hierarchical TPMS.">
+
+.. only:: html
+
+  .. image:: /examples/TPMS/images/thumb/sphx_glr_infill_gyroid_thumb.png
+    :alt:
+
+  :doc:`/examples/TPMS/infill_gyroid`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Gyroid infilled by a gyroid</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A gyroid surface mapped onto a spherical coordinate frame with microgen.SphericalTpms.">
+
+.. only:: html
+
+  .. image:: /examples/TPMS/images/thumb/sphx_glr_spherical_thumb.png
+    :alt:
+
+  :doc:`/examples/TPMS/spherical`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Spherical gyroid shell</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A gyroid sheet inside a hollow box, as one implicit shape: the hollow box is a difference of two boxes, joined to the gyroid sheet with a union. One octant is removed to show the inside.">
+
+.. only:: html
+
+  .. image:: /examples/TPMS/images/thumb/sphx_glr_tpms_shell_thumb.png
+    :alt:
+
+  :doc:`/examples/TPMS/tpms_shell`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Gyroid in a shell</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Intersection of a gyroid sheet with a sphere, computed with a boolean operation on the surface meshes.">
+
+.. only:: html
+
+  .. image:: /examples/TPMS/images/thumb/sphx_glr_tpms_sphere_thumb.png
+    :alt:
+
+  :doc:`/examples/TPMS/tpms_sphere`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Spherical gyroid</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The surface functions available in microgen.shape.surface_functions: Neovius, gyroid, Schwarz D, Schwarz P, honeycomb, Schoen IWP, Schoen FRD, Fischer-Koch S and PMY.">
+
+.. only:: html
+
+  .. image:: /examples/TPMS/images/thumb/sphx_glr_tpms_surfaces_thumb.png
+    :alt:
+
+  :doc:`/examples/TPMS/tpms_surfaces`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Available TPMS</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /examples/TPMS/coordinate_frames
+   /examples/TPMS/cylindrical
+   /examples/TPMS/cylindrical_graded
+   /examples/TPMS/cylindrical_rotated
+   /examples/TPMS/fischer_koch_s
+   /examples/TPMS/fourier_series_gyroid
+   /examples/TPMS/fourier_series_surfaces
+   /examples/TPMS/graded_cell_size
+   /examples/TPMS/graded_cell_type
+   /examples/TPMS/graded_density
+   /examples/TPMS/gyroid
+   /examples/TPMS/infill_bunny
+   /examples/TPMS/infill_graded_distance
+   /examples/TPMS/infill_gyroid
+   /examples/TPMS/spherical
+   /examples/TPMS/tpms_shell
+   /examples/TPMS/tpms_sphere
+   /examples/TPMS/tpms_surfaces
+
+.. _examples_spinodoids:
+
+Spinodoids
+----------
+
+Stochastic, bicontinuous and exactly periodic microstructures generated from
+Gaussian random fields.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Spinodoids mimic the bicontinuous microstructures of spinodal decomposition. A microgen.Spinodoid is a Gaussian random field: an FFT of white noise filtered by a Gaussian shell of radius k0 (the dominant wave number) and width bandwidth. The solid is the part where the field is above a threshold; giving density makes microgen find the threshold that matches this solid volume fraction.">
+
+.. only:: html
+
+  .. image:: /examples/Spinodoids/images/thumb/sphx_glr_spinodoid_thumb.png
+    :alt:
+
+  :doc:`/examples/Spinodoids/spinodoid`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Spinodoid</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /examples/Spinodoids/spinodoid
+
+.. _examples_lattices:
+
+Lattices
+--------
+
+Preset and custom strut-based lattices, octet-truss with a periodic mesh, and
+honeycomb.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A re-entrant auxetic strut lattice built with microgen.CustomLattice from its vertices and strut connectivity, following doi:10.1007/s00707-019-02387-x and doi:10.1016/j.ijmecsci.2017.05.048.">
+
+.. only:: html
+
+  .. image:: /examples/Lattices/images/thumb/sphx_glr_custom_auxetic_lattice_thumb.png
+    :alt:
+
+  :doc:`/examples/Lattices/custom_auxetic_lattice`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Custom auxetic lattice</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A honeycomb obtained by cutting hexagonal prisms out of a box with microgen.cut_phase_by_shape_list, then meshed with gmsh.">
+
+.. only:: html
+
+  .. image:: /examples/Lattices/images/thumb/sphx_glr_honeycomb_thumb.png
+    :alt:
+
+  :doc:`/examples/Lattices/honeycomb`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Honeycomb</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Build an octet-truss from cylinders read in a data file, make it periodic with microgen.periodic_split_and_translate, and mesh it with microgen.mesh_periodic so that opposite faces have matching nodes.">
+
+.. only:: html
+
+  .. image:: /examples/Lattices/images/thumb/sphx_glr_octet_truss_thumb.png
+    :alt:
+
+  :doc:`/examples/Lattices/octet_truss`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Periodic octet-truss mesh</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The twelve preset strut-based lattices of microgen.shape.strut_lattice, with a strut radius of 0.1.">
+
+.. only:: html
+
+  .. image:: /examples/Lattices/images/thumb/sphx_glr_preset_lattices_thumb.png
+    :alt:
+
+  :doc:`/examples/Lattices/preset_lattices`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Preset strut lattices</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /examples/Lattices/custom_auxetic_lattice
+   /examples/Lattices/honeycomb
+   /examples/Lattices/octet_truss
+   /examples/Lattices/preset_lattices
+
+.. _examples_implicit:
+
+Implicit workflow
+-----------------
+
+Phases defined by their implicit field, meshed by marching cubes without the
+optional CAD backend.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="End-to-end demonstration of the implicit-first pipeline of microgen 2.0, with no CAD detour.">
+
+.. only:: html
+
+  .. image:: /examples/ImplicitShapes/images/thumb/sphx_glr_gyroid_implicit_phase_thumb.png
+    :alt:
+
+  :doc:`/examples/ImplicitShapes/gyroid_implicit_phase`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Gyroid as an implicit Phase</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Since microgen 2.0, every shape carries an implicit field f(x, y, z), negative inside. Booleans are then operations on numbers, not on boundary representations:">
+
+.. only:: html
+
+  .. image:: /examples/ImplicitShapes/images/thumb/sphx_glr_implicit_booleans_thumb.png
+    :alt:
+
+  :doc:`/examples/ImplicitShapes/implicit_booleans`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Boolean operations on implicit fields</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /examples/ImplicitShapes/gyroid_implicit_phase
+   /examples/ImplicitShapes/implicit_booleans
+
+.. _examples_rve:
+
+Particle and fibre RVEs
+-----------------------
+
+Periodic representative volume elements filled with random, non-overlapping
+inclusions, built as unions of implicit shapes.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A short fibre composite as a representative volume element (RVE): randomly oriented fibres placed without overlap in a unit cell. Each fibre is an implicit microgen.Capsule (a cylinder with hemispherical ends) or a microgen.Cylinder (flat, sharp ends), and the reinforcement is the union of their fields.">
+
+.. only:: html
+
+  .. image:: /examples/RVE/images/thumb/sphx_glr_fibres_rve_thumb.png
+    :alt:
+
+  :doc:`/examples/RVE/fibres_rve`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Periodic RVE of short fibres</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A particle-reinforced composite as a representative volume element (RVE): spheres placed at random without overlap in a unit cell. Every sphere is an implicit microgen.Sphere; their union is one minimum over the fields (microgen.batch_smooth_union) and the matrix is its complement. No CAD kernel is involved.">
+
+.. only:: html
+
+  .. image:: /examples/RVE/images/thumb/sphx_glr_spheres_rve_thumb.png
+    :alt:
+
+  :doc:`/examples/RVE/spheres_rve`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Periodic RVE of spheres</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /examples/RVE/fibres_rve
+   /examples/RVE/spheres_rve
+
+.. _examples_3d_operations:
+
+3D operations
+-------------
+
+Repetition of a unit cell, rasterization of a phase, Voronoi tessellations and
+their intersection with a TPMS.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Split an ellipsoid along a 5 x 5 x 5 grid with microgen.raster_phase and mesh the resulting phases with gmsh.">
+
+.. only:: html
+
+  .. image:: /examples/3Doperations/images/thumb/sphx_glr_raster_ellipsoid_thumb.png
+    :alt:
+
+  :doc:`/examples/3Doperations/raster_ellipsoid`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rasterized ellipsoid</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Import an octet-truss unit cell from a STEP file and repeat it on a 5 x 5 x 5 grid with microgen.repeat_shape.">
+
+.. only:: html
+
+  .. image:: /examples/3Doperations/images/thumb/sphx_glr_repeat_shape_thumb.png
+    :alt:
+
+  :doc:`/examples/3Doperations/repeat_shape`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Repeat a unit cell</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Import the cells of a Neper tessellation as polyhedra with microgen.Neper.voronoi_from_tess_file, build a CAD compound and mesh it with gmsh.">
+
+.. only:: html
+
+  .. image:: /examples/3Doperations/images/thumb/sphx_glr_voronoi_thumb.png
+    :alt:
+
+  :doc:`/examples/3Doperations/voronoi`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Voronoi polycrystal</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Intersect each cell of a Voronoi tessellation with a gyroid sheet, then mesh the resulting phases with gmsh.">
+
+.. only:: html
+
+  .. image:: /examples/3Doperations/images/thumb/sphx_glr_voronoi_gyroid_thumb.png
+    :alt:
+
+  :doc:`/examples/3Doperations/voronoi_gyroid`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Voronoi gyroid</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /examples/3Doperations/raster_ellipsoid
+   /examples/3Doperations/repeat_shape
+   /examples/3Doperations/voronoi
+   /examples/3Doperations/voronoi_gyroid
+
+.. _examples_mesh:
+
+Meshing and remeshing
+---------------------
+
+Periodic tetrahedral meshes with gmsh and remeshing with mmg. These examples
+need the ``mmg`` executables (``conda install -c conda-forge mmg``); they are
+not run at each documentation build.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Remesh a gmsh mesh with mmg3d, then discretize a level set stored in the mesh.">
+
+.. only:: html
+
+  .. image:: /examples/Mesh/images/thumb/sphx_glr_mmg3d_thumb.png
+    :alt:
+
+  :doc:`/examples/Mesh/mmg3d`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Level-set remeshing with mmg</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Remesh a Voronoi mesh with mmg3d, then discretize a level set stored in the mesh, with a gradation of 1.1.">
+
+.. only:: html
+
+  .. image:: /examples/Mesh/images/thumb/sphx_glr_mmg_voronoi_thumb.png
+    :alt:
+
+  :doc:`/examples/Mesh/mmg_voronoi`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Level-set remeshing of a Voronoi mesh</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Generate a gyroid, export it to a STEP file, mesh it periodically with gmsh, and remesh the result with mmg for finite element simulations.">
+
+.. only:: html
+
+  .. image:: /examples/Mesh/images/thumb/sphx_glr_periodic_gyroid_remesh_thumb.png
+    :alt:
+
+  :doc:`/examples/Mesh/periodic_gyroid_remesh`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Periodic gyroid mesh from a STEP file</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Remesh a gyroid volume mesh with mmg while keeping its boundaries, so that the mesh stays periodic for finite element simulations.">
+
+.. only:: html
+
+  .. image:: /examples/Mesh/images/thumb/sphx_glr_remesh_thumb.png
+    :alt:
+
+  :doc:`/examples/Mesh/remesh`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Periodic remeshing</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /examples/Mesh/mmg3d
+   /examples/Mesh/mmg_voronoi
+   /examples/Mesh/periodic_gyroid_remesh
+   /examples/Mesh/remesh
+
+.. _examples_fibres:
+
+Fibres
+------
+
+Short fibre composites rebuilt from a list of measured fibres.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Rebuild the fibres of a short fibre composite from a tomography analysis: a CSV file gives the centre, diameter and orientation of about 15 000 fibres. Each fibre is a microgen.Cylinder, whose orientation gives the fibre axis; the fibres are drawn as PyVista tubes.">
+
+.. only:: html
+
+  .. image:: /examples/Fibers/images/thumb/sphx_glr_fibers_thumb.png
+    :alt:
+
+  :doc:`/examples/Fibers/fibers`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Short fibre composite</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /examples/Fibers/fibers
+
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

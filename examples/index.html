@@ -1,0 +1,579 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples &mdash; microgen 2.0.0b1</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=c83e6b79" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=df163c86" />
+
+  
+    <link rel="canonical" href="https://3mah.github.io/microgen-docs/examples/index.html"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=391fd9ae"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Platonic solids" href="BasicShapes/platonic_solids.html" />
+    <link rel="prev" title="Tutorials" href="../tutorials.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #24445C" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/microgen.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+<p style="padding: 0.5em 1.618em; margin-bottom: 0;">
+  <a href="https://3mah.github.io/" style="color: #d9d9d9; font-weight: bold; text-decoration: none;">
+    &larr; Back to 3MAH
+  </a>
+</p>
+<hr style="border-color: #4e4e4e; margin: 0.5em 1.618em;">
+
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Overview.html#brief-examples">Brief examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Install.html#core-or-cad-install">Core or CAD install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Install.html#development-install">Development install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick-Start Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#first-steps">First Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#creating-a-basic-tpms-shape">Creating a Basic TPMS Shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#tpms-part-types">TPMS Part Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#creating-basic-shapes">Creating Basic Shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#generating-cad-geometry">Generating CAD Geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#exporting-results">Exporting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_start.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html#basic-shapes">Basic Shapes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#box">Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#sphere">Sphere</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#cylinder">Cylinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#ellipsoid">Ellipsoid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#capsule">Capsule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#extruded-polygon">Extruded Polygon</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html#tpms-surfaces">TPMS Surfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#available-surface-functions">Available Surface Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#tpms-examples">TPMS Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#using-density-instead-of-offset">Using Density Instead of Offset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#spherical-tpms">Spherical TPMS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#cylindrical-tpms">Cylindrical TPMS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html#d-operations">3D Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#transforms">Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#repeat">Repeat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#raster">Raster</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html#meshing">Meshing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#regular-mesh-with-gmsh">Regular Mesh with Gmsh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#periodic-mesh">Periodic Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials.html#remeshing-with-mmg">Remeshing with Mmg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html#further-resources">Further Resources</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-shapes">Basic shapes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="BasicShapes/platonic_solids.html">Platonic solids</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BasicShapes/shapes.html">Basic shapes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#triply-periodic-minimal-surfaces-tpms">Triply periodic minimal surfaces (TPMS)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="TPMS/coordinate_frames.html">Spherical, cylindrical and swept frames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TPMS/cylindrical.html">Cylindrical gyroid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TPMS/cylindrical_graded.html">Radially graded cylindrical gyroid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TPMS/cylindrical_rotated.html">Rotated cylindrical gyroid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TPMS/fischer_koch_s.html">Fischer-Koch S surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TPMS/fourier_series_gyroid.html">Gyroid from its Fourier modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TPMS/fourier_series_surfaces.html">Generic triply periodic surfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TPMS/graded_cell_size.html">Cell size grading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TPMS/graded_cell_type.html">Morphing between TPMS types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TPMS/graded_density.html">Density grading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TPMS/gyroid.html">Gyroid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TPMS/infill_bunny.html">Gyroid infill of a mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TPMS/infill_graded_distance.html">Infill graded by the distance to the surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TPMS/infill_gyroid.html">Gyroid infilled by a gyroid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TPMS/spherical.html">Spherical gyroid shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TPMS/tpms_shell.html">Gyroid in a shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TPMS/tpms_sphere.html">Spherical gyroid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TPMS/tpms_surfaces.html">Available TPMS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#spinodoids">Spinodoids</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Spinodoids/spinodoid.html">Spinodoid</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lattices">Lattices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Lattices/custom_auxetic_lattice.html">Custom auxetic lattice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lattices/honeycomb.html">Honeycomb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lattices/octet_truss.html">Periodic octet-truss mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lattices/preset_lattices.html">Preset strut lattices</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#implicit-workflow">Implicit workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ImplicitShapes/gyroid_implicit_phase.html">Gyroid as an implicit Phase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ImplicitShapes/implicit_booleans.html">Boolean operations on implicit fields</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#particle-and-fibre-rves">Particle and fibre RVEs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="RVE/fibres_rve.html">Periodic RVE of short fibres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RVE/spheres_rve.html">Periodic RVE of spheres</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#d-operations">3D operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3Doperations/raster_ellipsoid.html">Rasterized ellipsoid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3Doperations/repeat_shape.html">Repeat a unit cell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3Doperations/voronoi.html">Voronoi polycrystal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3Doperations/voronoi_gyroid.html">Voronoi gyroid</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#meshing-and-remeshing">Meshing and remeshing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Mesh/mmg3d.html">Level-set remeshing with mmg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mesh/mmg_voronoi.html">Level-set remeshing of a Voronoi mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mesh/periodic_gyroid_remesh.html">Periodic gyroid mesh from a STEP file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mesh/remesh.html">Periodic remeshing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#fibres">Fibres</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Fibers/fibers.html">Short fibre composite</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Documentation.html">Microgen API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html">Microgen modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#module-microgen.phase">Phase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#module-microgen.operations">Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#module-microgen.rve">Rve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#module-microgen.periodic">Periodic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#module-microgen.mesh">Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#module-microgen.remesh">Remesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#module-microgen.external">External</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../microgen.shape.html">microgen.shape package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#shape-microgen-shape">Shape (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Box"><code class="docutils literal notranslate"><span class="pre">Box</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Capsule"><code class="docutils literal notranslate"><span class="pre">Capsule</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Cylinder"><code class="docutils literal notranslate"><span class="pre">Cylinder</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.CylindricalTpms"><code class="docutils literal notranslate"><span class="pre">CylindricalTpms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Ellipsoid"><code class="docutils literal notranslate"><span class="pre">Ellipsoid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ExtrudedPolygon"><code class="docutils literal notranslate"><span class="pre">ExtrudedPolygon</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.GradedInfill"><code class="docutils literal notranslate"><span class="pre">GradedInfill</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Infill"><code class="docutils literal notranslate"><span class="pre">Infill</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.NormedDistance"><code class="docutils literal notranslate"><span class="pre">NormedDistance</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Polyhedron"><code class="docutils literal notranslate"><span class="pre">Polyhedron</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Shape"><code class="docutils literal notranslate"><span class="pre">Shape</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Sphere"><code class="docutils literal notranslate"><span class="pre">Sphere</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.SphericalTpms"><code class="docutils literal notranslate"><span class="pre">SphericalTpms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Spinodoid"><code class="docutils literal notranslate"><span class="pre">Spinodoid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Sweep"><code class="docutils literal notranslate"><span class="pre">Sweep</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.Tpms"><code class="docutils literal notranslate"><span class="pre">Tpms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.batch_smooth_union"><code class="docutils literal notranslate"><span class="pre">batch_smooth_union()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.from_field"><code class="docutils literal notranslate"><span class="pre">from_field()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.new_geometry"><code class="docutils literal notranslate"><span class="pre">new_geometry()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#basic-geometry-microgen-shape-shape">Basic Geometry (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.shape</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.shape.Shape"><code class="docutils literal notranslate"><span class="pre">Shape</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.shape.ShellCreationError"><code class="docutils literal notranslate"><span class="pre">ShellCreationError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#box-microgen-shape-box">Box (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.box</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.box.Box"><code class="docutils literal notranslate"><span class="pre">Box</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#capsule-microgen-shape-capsule">Capsule (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.capsule</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.capsule.Capsule"><code class="docutils literal notranslate"><span class="pre">Capsule</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#cylinder-microgen-shape-cylinder">Cylinder (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.cylinder</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.cylinder.Cylinder"><code class="docutils literal notranslate"><span class="pre">Cylinder</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#ellipsoid-microgen-shape-ellipsoid">Ellipsoid (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.ellipsoid</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.ellipsoid.Ellipsoid"><code class="docutils literal notranslate"><span class="pre">Ellipsoid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#extruded-polygon-microgen-shape-extruded-polygon">Extruded Polygon (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.extruded_polygon</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.extruded_polygon.ExtrudedPolygon"><code class="docutils literal notranslate"><span class="pre">ExtrudedPolygon</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#polyhedron-microgen-shape-polyhedron">Polyhedron (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.polyhedron</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.polyhedron.Polyhedron"><code class="docutils literal notranslate"><span class="pre">Polyhedron</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.polyhedron.read_obj"><code class="docutils literal notranslate"><span class="pre">read_obj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#sphere-microgen-shape-sphere">Sphere (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.sphere</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.sphere.Sphere"><code class="docutils literal notranslate"><span class="pre">Sphere</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#tpms-microgen-shape-tpms">TPMS (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.tpms</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.CylindricalTpms"><code class="docutils literal notranslate"><span class="pre">CylindricalTpms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.GradedInfill"><code class="docutils literal notranslate"><span class="pre">GradedInfill</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.Infill"><code class="docutils literal notranslate"><span class="pre">Infill</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.ShellCreationError"><code class="docutils literal notranslate"><span class="pre">ShellCreationError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.SphericalTpms"><code class="docutils literal notranslate"><span class="pre">SphericalTpms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.Sweep"><code class="docutils literal notranslate"><span class="pre">Sweep</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.tpms.Tpms"><code class="docutils literal notranslate"><span class="pre">Tpms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#implicit-operations-microgen-shape-implicit-ops">Implicit Operations (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.implicit_ops</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_ops.batch_smooth_union"><code class="docutils literal notranslate"><span class="pre">batch_smooth_union()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_ops.blend"><code class="docutils literal notranslate"><span class="pre">blend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_ops.box"><code class="docutils literal notranslate"><span class="pre">box()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_ops.complement"><code class="docutils literal notranslate"><span class="pre">complement()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_ops.difference"><code class="docutils literal notranslate"><span class="pre">difference()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_ops.from_field"><code class="docutils literal notranslate"><span class="pre">from_field()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_ops.intersection"><code class="docutils literal notranslate"><span class="pre">intersection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_ops.normalize_to_sdf"><code class="docutils literal notranslate"><span class="pre">normalize_to_sdf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_ops.repeat"><code class="docutils literal notranslate"><span class="pre">repeat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_ops.shell"><code class="docutils literal notranslate"><span class="pre">shell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_ops.smooth_difference"><code class="docutils literal notranslate"><span class="pre">smooth_difference()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_ops.smooth_intersection"><code class="docutils literal notranslate"><span class="pre">smooth_intersection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_ops.smooth_union"><code class="docutils literal notranslate"><span class="pre">smooth_union()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.implicit_ops.union"><code class="docutils literal notranslate"><span class="pre">union()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.fischer_koch_s"><code class="docutils literal notranslate"><span class="pre">fischer_koch_s()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.fourier_series"><code class="docutils literal notranslate"><span class="pre">fourier_series()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.gyroid"><code class="docutils literal notranslate"><span class="pre">gyroid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.honeycomb"><code class="docutils literal notranslate"><span class="pre">honeycomb()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.honeycomb_gyroid"><code class="docutils literal notranslate"><span class="pre">honeycomb_gyroid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.honeycomb_lidinoid"><code class="docutils literal notranslate"><span class="pre">honeycomb_lidinoid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.honeycomb_schoen_iwp"><code class="docutils literal notranslate"><span class="pre">honeycomb_schoen_iwp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.honeycomb_schwarz_d"><code class="docutils literal notranslate"><span class="pre">honeycomb_schwarz_d()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.honeycomb_schwarz_p"><code class="docutils literal notranslate"><span class="pre">honeycomb_schwarz_p()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.lidinoid"><code class="docutils literal notranslate"><span class="pre">lidinoid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.neovius"><code class="docutils literal notranslate"><span class="pre">neovius()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.pmy"><code class="docutils literal notranslate"><span class="pre">pmy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.schoen_frd"><code class="docutils literal notranslate"><span class="pre">schoen_frd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.schoen_iwp"><code class="docutils literal notranslate"><span class="pre">schoen_iwp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.schwarz_d"><code class="docutils literal notranslate"><span class="pre">schwarz_d()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.schwarz_p"><code class="docutils literal notranslate"><span class="pre">schwarz_p()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.html#microgen.shape.surface_functions.split_p"><code class="docutils literal notranslate"><span class="pre">split_p()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../microgen.shape.strut_lattice.html">microgen.shape.strut_lattice subpackage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#abstract-lattice-microgen-shape-strut-lattice-abstract-lattice">Abstract Lattice (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.abstract_lattice</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.abstract_lattice.AbstractLattice"><code class="docutils literal notranslate"><span class="pre">AbstractLattice</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#body-centered-cubic-microgen-shape-strut-lattice-body-centered-cubic">Body Centered Cubic (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.body_centered_cubic</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.body_centered_cubic.BodyCenteredCubic"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubic</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#cubic-microgen-shape-strut-lattice-cubic">Cubic (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.cubic</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.cubic.Cubic"><code class="docutils literal notranslate"><span class="pre">Cubic</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#cuboctahedron-microgen-shape-strut-lattice-cuboctahedron">Cuboctahedron (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.cuboctahedron</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.cuboctahedron.Cuboctahedron"><code class="docutils literal notranslate"><span class="pre">Cuboctahedron</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#custom-lattice-microgen-shape-strut-lattice-custom-lattice">Custom Lattice (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.custom_lattice</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.custom_lattice.CustomLattice"><code class="docutils literal notranslate"><span class="pre">CustomLattice</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#diamond-microgen-shape-strut-lattice-diamond">Diamond (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.diamond</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.diamond.Diamond"><code class="docutils literal notranslate"><span class="pre">Diamond</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#face-centered-cubic-microgen-shape-strut-lattice-face-centered-cubic">Face Centered Cubic (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.face_centered_cubic</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.face_centered_cubic.FaceCenteredCubic"><code class="docutils literal notranslate"><span class="pre">FaceCenteredCubic</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#octahedron-microgen-shape-strut-lattice-octahedron">Octahedron (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.octahedron</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.octahedron.Octahedron"><code class="docutils literal notranslate"><span class="pre">Octahedron</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#octet-truss-microgen-shape-strut-lattice-octet-truss">Octet-truss (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.octet_truss</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.octet_truss.OctetTruss"><code class="docutils literal notranslate"><span class="pre">OctetTruss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#rhombic-cuboctahedron-microgen-shape-strut-lattice-rhombic-cuboctahedron">Rhombic Cuboctahedron (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.rhombic_cuboctahedron</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.rhombic_cuboctahedron.RhombicCuboctahedron"><code class="docutils literal notranslate"><span class="pre">RhombicCuboctahedron</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#rhombic-dodecahedron-microgen-shape-strut-lattice-rhombic-dodecahedron">Rhombic Dodecahedron (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.rhombic_dodecahedron</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.rhombic_dodecahedron.RhombicDodecahedron"><code class="docutils literal notranslate"><span class="pre">RhombicDodecahedron</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#truncated-cube-microgen-shape-strut-lattice-truncated-cube">Truncated Cube (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.truncated_cube</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.truncated_cube.TruncatedCube"><code class="docutils literal notranslate"><span class="pre">TruncatedCube</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#truncated-cuboctahedron-microgen-shape-strut-lattice-truncated-cuboctahedron">Truncated Cuboctahedron (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.truncated_cuboctahedron</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.truncated_cuboctahedron.TruncatedCuboctahedron"><code class="docutils literal notranslate"><span class="pre">TruncatedCuboctahedron</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#truncated-octahedron-microgen-shape-strut-lattice-truncated-octahedron">Truncated Octahedron (<code class="xref py py-mod docutils literal notranslate"><span class="pre">microgen.shape.strut_lattice.truncated_octahedron</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microgen.shape.strut_lattice.html#microgen.shape.strut_lattice.truncated_octahedron.TruncatedOctahedron"><code class="docutils literal notranslate"><span class="pre">TruncatedOctahedron</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#unreleased">Unreleased</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#added">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#changed">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#removed">Removed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#b1-2026-05-13">2.0.0b1 - 2026-05-13</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id1">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id2">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id3">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#fixed">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#migrating-from-1-x">Migrating from 1.x</a></li>
+</ul>
+</li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #24445C" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">microgen</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/examples/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="examples">
+<span id="id1"></span><h1>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h1>
+<p>Each example is a standalone script: download it at the bottom of its page and
+run it with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">&lt;name&gt;.py</span></code>. Most of them are run at each documentation
+build and the 3D scenes can be rotated in the <em>Interactive Scene</em> tab. Examples
+that need the optional CAD backend say so (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">microgen[cad]</span></code>).</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"></div><section id="basic-shapes">
+<span id="examples-basic-shapes"></span><h2>Basic shapes<a class="headerlink" href="#basic-shapes" title="Link to this heading"></a></h2>
+<p>Elementary shapes (box, sphere, cylinder, capsule, ellipsoid, extruded polygon,
+polyhedra) used as building blocks of microstructures.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Read the five Platonic solids from Wavefront .obj files with microgen.shape.polyhedron.read_obj and build them as microgen.Polyhedron shapes."><img alt="" src="../_images/sphx_glr_platonic_solids_thumb.png" />
+<p><a class="reference internal" href="BasicShapes/platonic_solids.html"><span class="doc">Platonic solids</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Platonic solids</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Create the elementary shapes of microgen with microgen.shape.new_geometry and export them as a single CAD compound."><img alt="" src="../_images/sphx_glr_shapes_thumb.png" />
+<p><a class="reference internal" href="BasicShapes/shapes.html"><span class="doc">Basic shapes</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Basic shapes</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="triply-periodic-minimal-surfaces-tpms">
+<span id="examples-tpms"></span><h2>Triply periodic minimal surfaces (TPMS)<a class="headerlink" href="#triply-periodic-minimal-surfaces-tpms" title="Link to this heading"></a></h2>
+<p>Sheet and skeletal TPMS, density and cell-size grading, morphing between TPMS
+families, cylindrical, spherical and swept coordinate frames, and infill of
+arbitrary meshes.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Three geometries built with the parametric-grid TPMS classes, each clipped by a y plane so the interior is visible:"><img alt="" src="../_images/sphx_glr_coordinate_frames_thumb.png" />
+<p><a class="reference internal" href="TPMS/coordinate_frames.html"><span class="doc">Spherical, cylindrical and swept frames</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Spherical, cylindrical and swept frames</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A gyroid mapped onto a cylindrical coordinate frame with microgen.CylindricalTpms."><img alt="" src="../_images/sphx_glr_cylindrical_thumb.png" />
+<p><a class="reference internal" href="TPMS/cylindrical.html"><span class="doc">Cylindrical gyroid</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Cylindrical gyroid</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A cylindrical gyroid whose offset increases with the radius, from an empty core to a fully dense skin."><img alt="" src="../_images/sphx_glr_cylindrical_graded_thumb.png" />
+<p><a class="reference internal" href="TPMS/cylindrical_graded.html"><span class="doc">Radially graded cylindrical gyroid</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Radially graded cylindrical gyroid</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A cylindrical gyroid whose local grid is rotated by 45 degrees about z with a scipy.spatial.transform.Rotation."><img alt="" src="../_images/sphx_glr_cylindrical_rotated_thumb.png" />
+<p><a class="reference internal" href="TPMS/cylindrical_rotated.html"><span class="doc">Rotated cylindrical gyroid</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Rotated cylindrical gyroid</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The zero level set of the Fischer-Koch S function on a 5 x 5 x 5 array of cells."><img alt="" src="../_images/sphx_glr_fischer_koch_s_thumb.png" />
+<p><a class="reference internal" href="TPMS/fischer_koch_s.html"><span class="doc">Fischer-Koch S surface</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Fischer-Koch S surface</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The closed-form TPMS functions are short truncated Fourier series. fourier_series builds a surface function from a list of integer modes, amplitudes and phases; here the six modes of the gyroid give back the same sheet as gyroid."><img alt="" src="../_images/sphx_glr_fourier_series_gyroid_thumb.png" />
+<p><a class="reference internal" href="TPMS/fourier_series_gyroid.html"><span class="doc">Gyroid from its Fourier modes</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Gyroid from its Fourier modes</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Any set of integer Fourier modes gives a triply periodic surface, minimal or not.  Back row: a gyroid, and the same gyroid perturbed by a second harmonic. Front row: a cubic surface built from two shells of modes, and a surface with random amplitudes and phases.  All of them go through Tpms like the closed-form surface functions."><img alt="" src="../_images/sphx_glr_fourier_series_surfaces_thumb.png" />
+<p><a class="reference internal" href="TPMS/fourier_series_surfaces.html"><span class="doc">Generic triply periodic surfaces</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Generic triply periodic surfaces</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A gyroid whose cell size follows a sigmoid transition along x, from 2 to 4. Linear and Gaussian transitions are also given."><img alt="" src="../_images/sphx_glr_graded_cell_size_thumb.png" />
+<p><a class="reference internal" href="TPMS/graded_cell_size.html"><span class="doc">Cell size grading</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Cell size grading</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Continuous morphing between Schwarz P, gyroid, Fischer-Koch S and Schwarz D."><img alt="" src="../_images/sphx_glr_graded_cell_type_thumb.png" />
+<p><a class="reference internal" href="TPMS/graded_cell_type.html"><span class="doc">Morphing between TPMS types</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Morphing between TPMS types</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A gyroid sheet whose offset varies linearly along x. The density does not vary linearly with the offset."><img alt="" src="../_images/sphx_glr_graded_density_thumb.png" />
+<p><a class="reference internal" href="TPMS/graded_density.html"><span class="doc">Density grading</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Density grading</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A gyroid sheet of relative density 0.3, exported as an STL surface mesh."><img alt="" src="../_images/sphx_glr_gyroid_thumb.png" />
+<p><a class="reference internal" href="TPMS/gyroid.html"><span class="doc">Gyroid</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Gyroid</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Fill the Stanford bunny with a gyroid with microgen.Infill."><img alt="" src="../_images/sphx_glr_infill_bunny_thumb.png" />
+<p><a class="reference internal" href="TPMS/infill_bunny.html"><span class="doc">Gyroid infill of a mesh</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Gyroid infill of a mesh</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Fill the Stanford bunny with a gyroid whose offset is given by microgen.NormedDistance: thin near the skin, thick in the core. The infill is clipped to show the inside."><img alt="" src="../_images/sphx_glr_infill_graded_distance_thumb.png" />
+<p><a class="reference internal" href="TPMS/infill_graded_distance.html"><span class="doc">Infill graded by the distance to the surface</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Infill graded by the distance to the surface</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A gyroid sheet used as the envelope of a finer gyroid infill: a hierarchical TPMS."><img alt="" src="../_images/sphx_glr_infill_gyroid_thumb.png" />
+<p><a class="reference internal" href="TPMS/infill_gyroid.html"><span class="doc">Gyroid infilled by a gyroid</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Gyroid infilled by a gyroid</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A gyroid surface mapped onto a spherical coordinate frame with microgen.SphericalTpms."><img alt="" src="../_images/sphx_glr_spherical_thumb.png" />
+<p><a class="reference internal" href="TPMS/spherical.html"><span class="doc">Spherical gyroid shell</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Spherical gyroid shell</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A gyroid sheet inside a hollow box, as one implicit shape: the hollow box is a difference of two boxes, joined to the gyroid sheet with a union. One octant is removed to show the inside."><img alt="" src="../_images/sphx_glr_tpms_shell_thumb.png" />
+<p><a class="reference internal" href="TPMS/tpms_shell.html"><span class="doc">Gyroid in a shell</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Gyroid in a shell</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Intersection of a gyroid sheet with a sphere, computed with a boolean operation on the surface meshes."><img alt="" src="../_images/sphx_glr_tpms_sphere_thumb.png" />
+<p><a class="reference internal" href="TPMS/tpms_sphere.html"><span class="doc">Spherical gyroid</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Spherical gyroid</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The surface functions available in microgen.shape.surface_functions: Neovius, gyroid, Schwarz D, Schwarz P, honeycomb, Schoen IWP, Schoen FRD, Fischer-Koch S and PMY."><img alt="" src="../_images/sphx_glr_tpms_surfaces_thumb.png" />
+<p><a class="reference internal" href="TPMS/tpms_surfaces.html"><span class="doc">Available TPMS</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Available TPMS</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="spinodoids">
+<span id="examples-spinodoids"></span><h2>Spinodoids<a class="headerlink" href="#spinodoids" title="Link to this heading"></a></h2>
+<p>Stochastic, bicontinuous and exactly periodic microstructures generated from
+Gaussian random fields.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Spinodoids mimic the bicontinuous microstructures of spinodal decomposition. A microgen.Spinodoid is a Gaussian random field: an FFT of white noise filtered by a Gaussian shell of radius k0 (the dominant wave number) and width bandwidth. The solid is the part where the field is above a threshold; giving density makes microgen find the threshold that matches this solid volume fraction."><img alt="" src="../_images/sphx_glr_spinodoid_thumb.png" />
+<p><a class="reference internal" href="Spinodoids/spinodoid.html"><span class="doc">Spinodoid</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Spinodoid</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="lattices">
+<span id="examples-lattices"></span><h2>Lattices<a class="headerlink" href="#lattices" title="Link to this heading"></a></h2>
+<p>Preset and custom strut-based lattices, octet-truss with a periodic mesh, and
+honeycomb.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A re-entrant auxetic strut lattice built with microgen.CustomLattice from its vertices and strut connectivity, following doi:10.1007/s00707-019-02387-x and doi:10.1016/j.ijmecsci.2017.05.048."><img alt="" src="../_images/sphx_glr_custom_auxetic_lattice_thumb.png" />
+<p><a class="reference internal" href="Lattices/custom_auxetic_lattice.html"><span class="doc">Custom auxetic lattice</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Custom auxetic lattice</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A honeycomb obtained by cutting hexagonal prisms out of a box with microgen.cut_phase_by_shape_list, then meshed with gmsh."><img alt="" src="../_images/sphx_glr_honeycomb_thumb.png" />
+<p><a class="reference internal" href="Lattices/honeycomb.html"><span class="doc">Honeycomb</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Honeycomb</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Build an octet-truss from cylinders read in a data file, make it periodic with microgen.periodic_split_and_translate, and mesh it with microgen.mesh_periodic so that opposite faces have matching nodes."><img alt="" src="../_images/sphx_glr_octet_truss_thumb.png" />
+<p><a class="reference internal" href="Lattices/octet_truss.html"><span class="doc">Periodic octet-truss mesh</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Periodic octet-truss mesh</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The twelve preset strut-based lattices of microgen.shape.strut_lattice, with a strut radius of 0.1."><img alt="" src="../_images/sphx_glr_preset_lattices_thumb.png" />
+<p><a class="reference internal" href="Lattices/preset_lattices.html"><span class="doc">Preset strut lattices</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Preset strut lattices</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="implicit-workflow">
+<span id="examples-implicit"></span><h2>Implicit workflow<a class="headerlink" href="#implicit-workflow" title="Link to this heading"></a></h2>
+<p>Phases defined by their implicit field, meshed by marching cubes without the
+optional CAD backend.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="End-to-end demonstration of the implicit-first pipeline of microgen 2.0, with no CAD detour."><img alt="" src="../_images/sphx_glr_gyroid_implicit_phase_thumb.png" />
+<p><a class="reference internal" href="ImplicitShapes/gyroid_implicit_phase.html"><span class="doc">Gyroid as an implicit Phase</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Gyroid as an implicit Phase</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Since microgen 2.0, every shape carries an implicit field f(x, y, z), negative inside. Booleans are then operations on numbers, not on boundary representations:"><img alt="" src="../_images/sphx_glr_implicit_booleans_thumb.png" />
+<p><a class="reference internal" href="ImplicitShapes/implicit_booleans.html"><span class="doc">Boolean operations on implicit fields</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Boolean operations on implicit fields</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="particle-and-fibre-rves">
+<span id="examples-rve"></span><h2>Particle and fibre RVEs<a class="headerlink" href="#particle-and-fibre-rves" title="Link to this heading"></a></h2>
+<p>Periodic representative volume elements filled with random, non-overlapping
+inclusions, built as unions of implicit shapes.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A short fibre composite as a representative volume element (RVE): randomly oriented fibres placed without overlap in a unit cell. Each fibre is an implicit microgen.Capsule (a cylinder with hemispherical ends) or a microgen.Cylinder (flat, sharp ends), and the reinforcement is the union of their fields."><img alt="" src="../_images/sphx_glr_fibres_rve_thumb.png" />
+<p><a class="reference internal" href="RVE/fibres_rve.html"><span class="doc">Periodic RVE of short fibres</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Periodic RVE of short fibres</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A particle-reinforced composite as a representative volume element (RVE): spheres placed at random without overlap in a unit cell. Every sphere is an implicit microgen.Sphere; their union is one minimum over the fields (microgen.batch_smooth_union) and the matrix is its complement. No CAD kernel is involved."><img alt="" src="../_images/sphx_glr_spheres_rve_thumb.png" />
+<p><a class="reference internal" href="RVE/spheres_rve.html"><span class="doc">Periodic RVE of spheres</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Periodic RVE of spheres</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="d-operations">
+<span id="examples-3d-operations"></span><h2>3D operations<a class="headerlink" href="#d-operations" title="Link to this heading"></a></h2>
+<p>Repetition of a unit cell, rasterization of a phase, Voronoi tessellations and
+their intersection with a TPMS.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Split an ellipsoid along a 5 x 5 x 5 grid with microgen.raster_phase and mesh the resulting phases with gmsh."><img alt="" src="../_images/sphx_glr_raster_ellipsoid_thumb.png" />
+<p><a class="reference internal" href="3Doperations/raster_ellipsoid.html"><span class="doc">Rasterized ellipsoid</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Rasterized ellipsoid</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Import an octet-truss unit cell from a STEP file and repeat it on a 5 x 5 x 5 grid with microgen.repeat_shape."><img alt="" src="../_images/sphx_glr_repeat_shape_thumb.png" />
+<p><a class="reference internal" href="3Doperations/repeat_shape.html"><span class="doc">Repeat a unit cell</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Repeat a unit cell</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Import the cells of a Neper tessellation as polyhedra with microgen.Neper.voronoi_from_tess_file, build a CAD compound and mesh it with gmsh."><img alt="" src="../_images/sphx_glr_voronoi_thumb.png" />
+<p><a class="reference internal" href="3Doperations/voronoi.html"><span class="doc">Voronoi polycrystal</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Voronoi polycrystal</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Intersect each cell of a Voronoi tessellation with a gyroid sheet, then mesh the resulting phases with gmsh."><img alt="" src="../_images/sphx_glr_voronoi_gyroid_thumb.png" />
+<p><a class="reference internal" href="3Doperations/voronoi_gyroid.html"><span class="doc">Voronoi gyroid</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Voronoi gyroid</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="meshing-and-remeshing">
+<span id="examples-mesh"></span><h2>Meshing and remeshing<a class="headerlink" href="#meshing-and-remeshing" title="Link to this heading"></a></h2>
+<p>Periodic tetrahedral meshes with gmsh and remeshing with mmg. These examples
+need the <code class="docutils literal notranslate"><span class="pre">mmg</span></code> executables (<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">mmg</span></code>); they are
+not run at each documentation build.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Remesh a gmsh mesh with mmg3d, then discretize a level set stored in the mesh."><img alt="" src="../_images/sphx_glr_mmg3d_thumb.png" />
+<p><a class="reference internal" href="Mesh/mmg3d.html"><span class="doc">Level-set remeshing with mmg</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Level-set remeshing with mmg</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Remesh a Voronoi mesh with mmg3d, then discretize a level set stored in the mesh, with a gradation of 1.1."><img alt="" src="../_images/sphx_glr_mmg_voronoi_thumb.png" />
+<p><a class="reference internal" href="Mesh/mmg_voronoi.html"><span class="doc">Level-set remeshing of a Voronoi mesh</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Level-set remeshing of a Voronoi mesh</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Generate a gyroid, export it to a STEP file, mesh it periodically with gmsh, and remesh the result with mmg for finite element simulations."><img alt="" src="../_images/sphx_glr_periodic_gyroid_remesh_thumb.png" />
+<p><a class="reference internal" href="Mesh/periodic_gyroid_remesh.html"><span class="doc">Periodic gyroid mesh from a STEP file</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Periodic gyroid mesh from a STEP file</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Remesh a gyroid volume mesh with mmg while keeping its boundaries, so that the mesh stays periodic for finite element simulations."><img alt="" src="../_images/sphx_glr_remesh_thumb.png" />
+<p><a class="reference internal" href="Mesh/remesh.html"><span class="doc">Periodic remeshing</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Periodic remeshing</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="fibres">
+<span id="examples-fibres"></span><h2>Fibres<a class="headerlink" href="#fibres" title="Link to this heading"></a></h2>
+<p>Short fibre composites rebuilt from a list of measured fibres.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Rebuild the fibres of a short fibre composite from a tomography analysis: a CSV file gives the centre, diameter and orientation of about 15 000 fibres. Each fibre is a microgen.Cylinder, whose orientation gives the fibre axis; the fibres are drawn as PyVista tubes."><img alt="" src="../_images/sphx_glr_fibers_thumb.png" />
+<p><a class="reference internal" href="Fibers/fibers.html"><span class="doc">Short fibre composite</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Short fibre composite</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../tutorials.html" class="btn btn-neutral float-left" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="BasicShapes/platonic_solids.html" class="btn btn-neutral float-right" title="Platonic solids" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2026, 3MAH development team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

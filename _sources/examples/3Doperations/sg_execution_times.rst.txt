@@ -1,0 +1,46 @@
+
+:orphan:
+
+.. _sphx_glr_examples_3Doperations_sg_execution_times:
+
+
+Computation times
+=================
+**00:21.120** total execution time for 4 files **from examples/3Doperations**:
+
+.. container::
+
+  .. raw:: html
+
+    <style scoped>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script type="text/javascript" class="init">
+    $(document).ready( function () {
+        $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+    } );
+    </script>
+
+  .. list-table::
+   :header-rows: 1
+   :class: table table-striped sg-datatable
+
+   * - Example
+     - Time
+     - Mem (MB)
+   * - :ref:`sphx_glr_examples_3Doperations_raster_ellipsoid.py` (``raster_ellipsoid.py``)
+     - 00:11.547
+     - 0.0
+   * - :ref:`sphx_glr_examples_3Doperations_repeat_shape.py` (``repeat_shape.py``)
+     - 00:04.927
+     - 0.0
+   * - :ref:`sphx_glr_examples_3Doperations_voronoi.py` (``voronoi.py``)
+     - 00:04.645
+     - 0.0
+   * - :ref:`sphx_glr_examples_3Doperations_voronoi_gyroid.py` (``voronoi_gyroid.py``)
+     - 00:00.000
+     - 0.0
